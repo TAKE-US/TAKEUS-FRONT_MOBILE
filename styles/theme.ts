@@ -25,6 +25,26 @@ const theme = {
     deep_blue: '#0E57E2',
     honest_blue: '#003089',
     error_red: '#F2754E',
+  },
+  font: {
+    headline: "normal 700 1.6rem/2.4rem 'Noto Sans kr'",
+    subheading1: "normal 700 1.5rem/2.2rem 'Noto Sans kr'", 
+    subheading2: "normal 700 1.3rem/1.8rem 'Noto Sans kr'", 
+    smallheading1: "normal 400 1rem/1.3rem 'Noto Sans kr'", 
+    title1: "normal 700 1.1rem/1.8rem 'Noto Sans kr'", 
+    title2: "normal 700 1rem/1.5rem 'Noto Sans kr'", 
+    body1: "normal 400 1rem/1.4rem 'Noto Sans kr'", 
+    body2: "normal 400 0.8rem/1.1rem 'Noto Sans kr'", 
+    body1_medium: "normal 400 0.9rem/1.4rem 'Spoqa Han Sans Neo'",
+    headline_btn: "normal 700 1.6rem/2.4rem 'Spoqa Han Sans Neo'",
+    subheading1_btn: "normal 700 1.5rem/2.2rem 'Spoqa Han Sans Neo'", 
+    subheading2_btn: "normal 700 1.3rem/1.8rem 'Spoqa Han Sans Neo'", 
+    smallheading1_btn: "normal 400 1rem/1.3rem 'Spoqa Han Sans Neo'", 
+    title1_btn: "normal 700 1.1rem/1.8rem 'Spoqa Han Sans Neo'", 
+    title2_btn: "normal 700 1rem/1.5rem 'Spoqa Han Sans Neo'", 
+    body1_btn: "normal 400 1rem/1.4rem 'Spoqa Han Sans Neo'", 
+    body2_btn: "normal 400 0.8rem/1.1rem 'Spoqa Han Sans Neo'", 
+    body1_medium_btn: "normal 400 0.9rem/1.4rem 'Spoqa Han Sans Neo'", 
   }
 }
 
