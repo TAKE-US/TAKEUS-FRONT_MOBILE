@@ -20,6 +20,3 @@ jobs:
 
       - name: Check Lint
         run: yarn lint
-
-      - name: Check Unit Test
-        run: yarn test:coverage
