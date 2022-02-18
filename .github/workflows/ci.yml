@@ -16,10 +16,7 @@ jobs:
           node-version: 14.x
 
       - name: Install dependencies
-        run: yarn install --immutable --immutable-cache
+        run: yarn install
 
       - name: Check Lint
         run: yarn lint
-
-      - name: Check Unit Test
-        run: yarn test:coverage

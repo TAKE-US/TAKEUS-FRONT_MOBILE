@@ -4,8 +4,31 @@
       "next/babel",
       {
         "preset-react": {
-          "runtime": "automatic"
+          "runtime": "automatic",
+          "importSource": "@emotion/react"
         }
+      }
+    ]
+  ],
+  "plugins": [
+    ["@emotion/babel-plugin"],
+    [
+      "module-resolver",
+      {
+        "root": ["./"],
+        "alias": {
+          "@components": "./components",
+          "@const": "./constants",
+          "@hooks": "./hooks",
+          "@public": "./public",
+          "@styles": "./styles",
+          "@assets": "./assets",
+          "@utils": "./utils",
+          "@constants": "./constants",
+          "@store": "./store",
+          "@service": "./service"
+        },
+        "extensions": [".ts", ".tsx"]
       }
     ]
   ]
