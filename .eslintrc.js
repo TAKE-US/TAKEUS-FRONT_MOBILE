@@ -5,7 +5,7 @@ module.exports = {
     es2021: true,
     jest: true,
   },
-  plugins: ['react', '@typescript-eslint', "prettier"],
+  plugins: ['react', '@typescript-eslint', 'prettier'],
   extends: ['next', 'eslint:recommended', 'plugin:@typescript-eslint/recommended', 'plugin:react-hooks/recommended'],
   parser: '@typescript-eslint/parser',
   parserOptions: {
@@ -23,7 +23,7 @@ module.exports = {
       },
     ],
     '@typescript-eslint/no-use-before-define': ['error'],
-    '@typescript-eslint/no-unused-vars': 'off',
+    '@typescript-eslint/no-unused-vars': 'warn',
     '@typescript-eslint/no-var-requires': 'off',
     'react-hooks/rules-of-hooks': 'error',
     'react-hooks/exhaustive-deps': 'warn'
