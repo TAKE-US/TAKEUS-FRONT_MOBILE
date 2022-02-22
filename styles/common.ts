@@ -1,5 +1,3 @@
-import styled from '@emotion/styled';
-
 export const Center = `
   display: flex;
   justify-content: center;
@@ -23,3 +21,8 @@ export const SpaceEvenly = `
   justify-content: space-evenly;
   align-items: center;
 `;
+
+export const VerticalAlign = `
+  display: flex;
+  flex-direction: column;
+`
