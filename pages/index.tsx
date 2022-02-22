@@ -8,11 +8,13 @@ import SearchBar from '@components/SearchBar';
 import MainPageInform from '@components/MainPageInform';
 import Footer from '@components/Common/Footer';
 
+import { getDogs } from '@service/network';
+
 const NextPageContainer = styled.div`
   ${VerticalAlign};
 `;
 
-export const Home: NextPage = (): ReactElement => {
+const Home: NextPage = (): ReactElement => {
   return (
     <NextPageContainer>
       <Header />
@@ -22,5 +24,16 @@ export const Home: NextPage = (): ReactElement => {
     </NextPageContainer>
   );
 };
+
+export async function getStaticProps() {
+  const dogList = await getDogs();
+  console.log(dogList);
+  return {
+    props: {
+      dogList: [],
+    },
+    revalidate: 2000,
+  };
+}
 
 export default Home;
