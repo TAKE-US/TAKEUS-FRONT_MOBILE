@@ -25,10 +25,22 @@
           "@utils/*": ["./utils/*"],
           "@constants/*": ["./constants/*"],
           "@store/*": ["./store/*"],
-          "@service/*": ["./service/*"]
+          "@service/*": ["./service/*"],
+          "@context/*": ["./context/*"],
+          "@types/*": ["./types/*"]
       },
       "incremental": true
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    "next.config.js",
+    "custom.d.ts",
+    "styles",
+    "pages",
+    "public",
+    "context",
+  ],
   "exclude": ["node_modules"]
 }
