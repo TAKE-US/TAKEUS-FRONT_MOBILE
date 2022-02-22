@@ -7,9 +7,9 @@ import Modals from '@components/Modals';
 
 export default function MyApp({ Component, pageProps }: AppProps) {
   return (
-    <ThemeProvider theme= { theme } >
-      <ModalsProvider>  
-        <Modals/>
+    <ThemeProvider theme={theme}>
+      <ModalsProvider>
+        <Modals />
         <Component {...pageProps} />
       </ModalsProvider>
     </ThemeProvider>
