@@ -6,7 +6,7 @@ import { VerticalAlign } from '@styles/common';
 import Header from '@components/Header';
 import SearchBar from '@components/SearchBar';
 import MainPageInform from '@components/MainPageInform';
-import Footer from '@components/Footer';
+import Footer from '@components/Common/Footer';
 
 const NextPageContainer = styled.div`
   ${VerticalAlign};
