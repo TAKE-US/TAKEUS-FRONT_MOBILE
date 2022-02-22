@@ -10,5 +10,9 @@
 			"group": "build",
 			"label": "tsc: build - tsconfig.json"
 		}
-	]
+	],
+	"editor.codeActionsOnSave": {
+    // For ESLint
+    "source.fixAll.eslint": true
+  }
 }
