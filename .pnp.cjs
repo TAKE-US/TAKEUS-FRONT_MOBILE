@@ -61,6 +61,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@typescript-eslint/eslint-plugin-tslint", "virtual:f99c12d32a63cca9313069885aac54829d9d7fe028163ef326f57182b99bfe80be50d29c862c5e1f23e050d5a0006cf66046d6ebae2147059e54e8424311cda0#npm:5.12.0"],
             ["@typescript-eslint/parser", "virtual:f99c12d32a63cca9313069885aac54829d9d7fe028163ef326f57182b99bfe80be50d29c862c5e1f23e050d5a0006cf66046d6ebae2147059e54e8424311cda0#npm:5.12.0"],
             ["@yarnpkg/pnpify", "npm:3.1.1"],
+            ["await-to-js", "npm:3.0.0"],
             ["axios", "npm:0.26.0"],
             ["babel-jest", "virtual:f99c12d32a63cca9313069885aac54829d9d7fe028163ef326f57182b99bfe80be50d29c862c5e1f23e050d5a0006cf66046d6ebae2147059e54e8424311cda0#npm:27.5.1"],
             ["babel-loader", "virtual:f99c12d32a63cca9313069885aac54829d9d7fe028163ef326f57182b99bfe80be50d29c862c5e1f23e050d5a0006cf66046d6ebae2147059e54e8424311cda0#npm:8.2.3"],
@@ -6391,6 +6392,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD",
         }]
       ]],
+      ["await-to-js", [
+        ["npm:3.0.0", {
+          "packageLocation": "./.yarn/cache/await-to-js-npm-3.0.0-e2a325d38a-b6e9dcf9f0.zip/node_modules/await-to-js/",
+          "packageDependencies": [
+            ["await-to-js", "npm:3.0.0"]
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
       ["axe-core", [
         ["npm:4.4.1", {
           "packageLocation": "./.yarn/cache/axe-core-npm-4.4.1-95b0d6a519-ad14c5b710.zip/node_modules/axe-core/",
@@ -12503,6 +12513,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@typescript-eslint/eslint-plugin-tslint", "virtual:f99c12d32a63cca9313069885aac54829d9d7fe028163ef326f57182b99bfe80be50d29c862c5e1f23e050d5a0006cf66046d6ebae2147059e54e8424311cda0#npm:5.12.0"],
             ["@typescript-eslint/parser", "virtual:f99c12d32a63cca9313069885aac54829d9d7fe028163ef326f57182b99bfe80be50d29c862c5e1f23e050d5a0006cf66046d6ebae2147059e54e8424311cda0#npm:5.12.0"],
             ["@yarnpkg/pnpify", "npm:3.1.1"],
+            ["await-to-js", "npm:3.0.0"],
             ["axios", "npm:0.26.0"],
             ["babel-jest", "virtual:f99c12d32a63cca9313069885aac54829d9d7fe028163ef326f57182b99bfe80be50d29c862c5e1f23e050d5a0006cf66046d6ebae2147059e54e8424311cda0#npm:27.5.1"],
             ["babel-loader", "virtual:f99c12d32a63cca9313069885aac54829d9d7fe028163ef326f57182b99bfe80be50d29c862c5e1f23e050d5a0006cf66046d6ebae2147059e54e8424311cda0#npm:8.2.3"],
