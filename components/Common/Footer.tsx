@@ -2,7 +2,7 @@ import styled from '@emotion/styled';
 
 const SFooter = styled.footer`
   width: 100%;
-  height: 100%;
+  height: 30%;
   padding: 2rem;
   text-align: center;
   background-color: ${({ theme }) => theme.color.lightgray1};
