@@ -1,5 +1,4 @@
-
-import { ReactElement } from 'react';
+import React from 'react';
 import styled from '@emotion/styled';
 import Link from 'next/link';
 
@@ -20,7 +19,7 @@ const SideBarContainer = styled.aside`
   align-items: flex-start;
   z-index: 3;
   font: ${({ theme }) => theme.font.body1};
-  background-color: ${({theme}) => theme.color.white};
+  background-color: ${({ theme }) => theme.color.white};
 
   & > .XBtn {
     width: 90%;
@@ -38,7 +37,7 @@ const SideBarContainer = styled.aside`
     height: 20%;
     justify-content: space-around;
   }
-`
+`;
 
 const Container = styled.div`
   position: fixed;
@@ -47,18 +46,21 @@ const Container = styled.div`
   width: 100vw;
   height: 100vh;
   z-index: 4;
-`
+`;
 
-const SideBar = (): ReactElement => {
+const SideBar = (): React.FC => {
   const { closeModal } = useModals();
   const handleClose = () => {
     closeModal(modalList.SideBar);
-  }
+  };
 
   return (
     <Container>
-      <SideBarContainer>  
-        <div className='XBtn' onClick={handleClose}> X </div>
+      <SideBarContainer>
+        <div className="XBtn" onClick={handleClose}>
+          {' '}
+          X{' '}
+        </div>
         <span> Login </span>
         <ul>
           <Link href={'/'}>홈</Link>
@@ -68,9 +70,9 @@ const SideBar = (): ReactElement => {
           <Link href={'/'}>About us</Link>
         </ul>
       </SideBarContainer>
-      <Overlay onClose={handleClose}/>
+      <Overlay onClose={handleClose} />
     </Container>
-  )
+  );
 };
 
 export default SideBar;

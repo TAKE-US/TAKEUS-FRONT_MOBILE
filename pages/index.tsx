@@ -5,13 +5,14 @@ import styled from '@emotion/styled';
 import { VerticalAlign } from '@styles/common';
 import Header from '@components/Header';
 import SearchBar from '@components/SearchBar';
+import DogCardContainer from '@components/Carousel/DogCardContainer';
 import MainPageInform from '@components/MainPageInform';
-import Footer from '@components/Common/Footer';
 
 import { getDogs } from '@service/network';
 
 const NextPageContainer = styled.div`
   ${VerticalAlign};
+  justify-content: space-between;
 `;
 
 const Home: NextPage = (): ReactElement => {
@@ -19,15 +20,14 @@ const Home: NextPage = (): ReactElement => {
     <NextPageContainer>
       <Header />
       <SearchBar />
+      <DogCardContainer />
       <MainPageInform />
-      <Footer />
     </NextPageContainer>
   );
 };
 
 export async function getStaticProps() {
   const dogList = await getDogs();
-  console.log(dogList);
   return {
     props: {
       dogList: [],

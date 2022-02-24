@@ -1,16 +1,23 @@
 import styled from '@emotion/styled';
 import { VerticalAlign } from '@styles/common';
 
+export const InformContainer = styled.div`
+  ${VerticalAlign}
+  width: 100%;
+  align-items: center;
+  margin-bottom: 14rem;
+`;
+
 export const BeforeVolunteerContainer = styled.section`
   position: relative;
-  top: -2rem;
+  margin-top: 1rem;
   z-index: -1;
   ${VerticalAlign};
   align-items: center;
 
   & > section {
     width: 90%;
-    height: 60%;
+    height: 40%;
     position: absolute;
     top: 3rem;
     font: ${({ theme }) => theme.font.body2};
@@ -35,18 +42,11 @@ export const BeforeVolunteerContainer = styled.section`
   }
 `;
 
-export const InformContainer = styled.div`
-  margin: 0;
-  ${VerticalAlign}
-  width: 100%;
-  align-items: center;
-`;
-
 export const AboutContainer = styled.section`
   ${VerticalAlign}
+  height: 100%;
   width: 85%;
   align-items: center;
-  justify-content: center;
   margin-top: 1rem;
 
   & > h5 {
@@ -76,7 +76,7 @@ export const AboutContainer = styled.section`
     font: ${({ theme }) => theme.font.body1_medium_btn};
     border: none;
 
-    margin: 6rem 0;
+    margin: 4rem 0;
     padding: 1rem;
     width: 80%;
     border-radius: 5rem;
