@@ -1,6 +1,7 @@
 import Image from 'next/image';
-import Loading from '@assets/Loading.gif';
 import styled from '@emotion/styled';
+
+import Loading from '@assets/Loading.gif';
 import { VerticalAlign } from '@styles/common';
 
 const Container = styled.div`

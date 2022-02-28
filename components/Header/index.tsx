@@ -1,9 +1,9 @@
 import styled from '@emotion/styled';
 
-import { SpaceBetween } from '@styles/common';
-import useModals from '@hooks/useModals';
 import { modalList } from '@components/Modals';
+import useModals from '@hooks/useModals';
 
+import { SpaceBetween } from '@styles/common';
 import HamburgerBtn from '@assets/hamburgerbtn.svg';
 import TakeusLogo from '@assets/takeuslogo.svg';
 

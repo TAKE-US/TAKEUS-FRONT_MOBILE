@@ -1,6 +1,8 @@
 import React from 'react';
 import Image from 'next/image';
+
 import Dropdown from '@components/Common/Dropdown';
+
 import { Container, SearchBarContainer, SearchBarFormContainer } from './style';
 import MainBackGroundImage from '@assets/MainBackground.png';
 import SeacrhBtn from '@assets/SearchBtn.svg';

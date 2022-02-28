@@ -1,11 +1,11 @@
 import React, { ReactElement } from 'react';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
-
 import styled from '@emotion/styled';
-import { SpaceAround } from '@styles/common';
 
 import Carousel from '@components/Carousel';
+
+import { SpaceAround } from '@styles/common';
 import TestImage from '@assets/TestImage.png';
 import { DogCardListType } from '../../types/dog';
 

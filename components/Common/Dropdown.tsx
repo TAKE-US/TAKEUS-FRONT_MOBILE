@@ -1,7 +1,8 @@
+import { ReactElement } from 'react';
 import styled from '@emotion/styled';
+
 import DropdownArrow from '@assets/DropdownArrow.svg';
 import { SpaceBetween } from '@styles/common';
-import { ReactElement } from 'react';
 
 const DropdownContainer = styled.div`
   ${SpaceBetween}

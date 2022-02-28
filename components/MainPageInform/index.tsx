@@ -1,11 +1,13 @@
 import { ReactElement } from 'react';
 import Image from 'next/image';
-import MainPageBeforeVolunteer from '@assets/MainPageBeforeVolunteer.png';
+
 import Footer from '@components/Common/Footer';
+
+import { AboutContainer, InformContainer, BeforeVolunteerContainer } from './style';
+import MainPageBeforeVolunteer from '@assets/MainPageBeforeVolunteer.png';
 import ClockIcon from '@assets/ClockIcon.svg';
 import FinderIcon from '@assets/FinderIcon.svg';
 import HeartIcon from '@assets/HeartIcon.svg';
-import { AboutContainer, InformContainer, BeforeVolunteerContainer } from './style';
 
 const About = () => {
   return (

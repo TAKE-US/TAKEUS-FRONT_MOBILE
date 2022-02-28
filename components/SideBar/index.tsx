@@ -1,12 +1,12 @@
-import React from 'react';
+import React, { ReactElement } from 'react';
 import styled from '@emotion/styled';
 import Link from 'next/link';
 
 import Overlay from '@components/Overlay';
-import { VerticalAlign } from '@styles/common';
-import useModals from '@hooks/useModals';
 import { modalList } from '@components/Modals';
-import { ReactElement } from 'react';
+import useModals from '@hooks/useModals';
+
+import { VerticalAlign } from '@styles/common';
 
 const SideBarContainer = styled.aside`
   ${VerticalAlign}

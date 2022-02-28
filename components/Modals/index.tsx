@@ -1,7 +1,9 @@
 import React, { useContext } from 'react';
-import { ModalsDispatchContext, ModalsStateContext } from '@context/ModalsContext';
-import { ModalListState, ModalsDispatch } from '../../types/modal';
+
 import SideBar from '@components/SideBar';
+import { ModalsDispatchContext, ModalsStateContext } from '@context/ModalsContext';
+
+import { ModalListState, ModalsDispatch } from '../../types/modal';
 
 export const modalList = {
   SideBar,

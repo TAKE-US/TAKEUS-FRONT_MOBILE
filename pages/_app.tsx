@@ -1,6 +1,7 @@
 import type { AppProps } from 'next/app';
 import { ThemeProvider } from '@emotion/react';
 import theme from '@styles/theme';
+
 import '@styles/global.css';
 import { ModalsProvider } from '@context/ModalsProvider';
 import Modals from '@components/Modals';

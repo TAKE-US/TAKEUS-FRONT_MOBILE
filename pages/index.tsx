@@ -1,15 +1,15 @@
 import styled from '@emotion/styled';
+import Image from 'next/image';
 
-import { SpaceBetween, VerticalAlign } from '@styles/common';
 import Header from '@components/Header';
 import SearchBar from '@components/SearchBar';
 import DogCardContainer from '@components/Carousel/DogCardContainer';
 import MainPageInform from '@components/MainPageInform';
 
 import { getDogs } from '@service/network';
-import { DogCardListType } from '../types/dog';
+import { VerticalAlign } from '@styles/common';
 import Loading from '@assets/Loading.gif';
-import Image from 'next/image';
+import { DogCardListType } from '../types/dog';
 
 const NextPageContainer = styled.div`
   ${VerticalAlign};
