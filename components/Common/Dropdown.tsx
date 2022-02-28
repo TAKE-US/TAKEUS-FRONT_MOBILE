@@ -24,7 +24,10 @@ interface DataProp {
 const Dropdown = ({ name, data }: DropdownSelectProp<Array<DataProp>>): ReactElement => {
   return (
     <DropdownContainer>
-      <p>{name}</p>
+      <p>
+        {name}
+        {data}
+      </p>
       <DropdownArrow />
     </DropdownContainer>
   );

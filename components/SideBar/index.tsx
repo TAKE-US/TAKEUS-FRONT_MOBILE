@@ -6,6 +6,7 @@ import Overlay from '@components/Overlay';
 import { VerticalAlign } from '@styles/common';
 import useModals from '@hooks/useModals';
 import { modalList } from '@components/Modals';
+import { ReactElement } from 'react';
 
 const SideBarContainer = styled.aside`
   ${VerticalAlign}
@@ -48,7 +49,7 @@ const Container = styled.div`
   z-index: 4;
 `;
 
-const SideBar = (): React.FC => {
+const SideBar = (): ReactElement => {
   const { closeModal } = useModals();
   const handleClose = () => {
     closeModal(modalList.SideBar);
