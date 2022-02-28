@@ -46,3 +46,6 @@ cypress/log
 
 # vercel
 .vercel
+
+# env
+.env

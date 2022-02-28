@@ -4,9 +4,12 @@ body {
   margin: 0;
   font-family: -apple-system, 'Noto Sans KR', 'Montserrat', BlinkMacSystemFont, Segoe UI, Roboto,
     Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  font-size: 62.5%;
 }
 * {
   box-sizing: border-box;
+  padding: 0;
+  margin: 0;
 }
 
 /*! normalize.css v3.0.2 | MIT License | git.io/normalize */
@@ -62,6 +65,7 @@ textarea {
 
 button {
   overflow: visible;
+  background-color: transparent;
 }
 
 button,

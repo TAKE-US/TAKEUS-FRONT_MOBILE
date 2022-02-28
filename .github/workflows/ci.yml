@@ -3,7 +3,7 @@ name: CI
 on:
   # main 브랜치로 pull request 일 때만 수행한다.
   pull_request:
-    branches: [main]
+    branches: [main, dev]
 
 jobs:
   continuous-integration:
@@ -19,4 +19,4 @@ jobs:
         run: yarn install
 
       - name: Check Lint
-        run: yarn lint
+        run: yarn lint --fix
