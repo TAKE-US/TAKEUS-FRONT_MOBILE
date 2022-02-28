@@ -25,4 +25,4 @@ export const SpaceEvenly = `
 export const VerticalAlign = `
   display: flex;
   flex-direction: column;
-`
+`;
