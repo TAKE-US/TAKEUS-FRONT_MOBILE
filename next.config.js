@@ -12,13 +12,14 @@ module.exports = withBundleAnalyzer({
     return conf;
   },
   async rewrites() {
-    if (process.env.NODE_ENV !== 'production') {
-      return [
-        {
-          source: '/:path*',
-          destination: process.env.DEV_API_URL,
-        },
-      ];
-    }
+    return [
+      {
+        source: '/:path*',
+        destination: process.env.DEV_API_URL,
+      },
+    ];
+  },
+  images: {
+    domains: ['takeus-bucket.s3.ap-northeast-2.amazonaws.com'],
   },
 });
