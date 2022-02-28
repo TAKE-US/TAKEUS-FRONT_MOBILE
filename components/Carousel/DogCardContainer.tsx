@@ -1,10 +1,13 @@
 import React, { ReactElement } from 'react';
-import styled from '@emotion/styled';
-import { SpaceBetween, SpaceAround } from '@styles/common';
 import Image from 'next/image';
+import { useRouter } from 'next/router';
+
+import styled from '@emotion/styled';
+import { SpaceAround } from '@styles/common';
 
 import Carousel from '@components/Carousel';
 import TestImage from '@assets/TestImage.png';
+import { DogCardListType } from '../../types/dog';
 
 const Container = styled.div`
   height: 30%;
@@ -49,9 +52,14 @@ const CardContainer = styled.article`
   }
 `;
 
-const DogCardContainer = (): ReactElement => {
-  const listRef = React.useRef(null);
+const DogCardContainer = ({ data }: { data: DogCardListType }): ReactElement => {
+  const listRef = React.useRef<HTMLDivElement | null>(null);
   const movingValue = 162;
+
+  const router = useRouter();
+  const onClick = (id: string) => {
+    router.push(`/dogs/${id}`);
+  };
 
   return (
     <Container>
@@ -64,29 +72,13 @@ const DogCardContainer = (): ReactElement => {
       </div>
       <CardContainer>
         <div className="card__container" ref={listRef}>
-          <div className="image__container">
-            <Image src={TestImage} width={150} height={150} alt="TestImage" />
-          </div>
-          <div className="image__container"></div>
-          <div className="image__container">
-            <Image src={TestImage} width={150} height={150} alt="TestImage" />
-          </div>
-          <div className="image__container"></div>
-          <div className="image__container">
-            <Image src={TestImage} width={150} height={150} alt="TestImage" />
-          </div>
-          <div className="image__container">
-            <Image src={TestImage} width={150} height={150} alt="TestImage" />
-          </div>
-          <div className="image__container">
-            <Image src={TestImage} width={150} height={150} alt="TestImage" />
-          </div>
-          <div className="image__container">
-            <Image src={TestImage} width={150} height={150} alt="TestImage" />
-          </div>
-          <div className="image__container">
-            <Image src={TestImage} width={150} height={150} alt="TestImage" />
-          </div>
+          {data?.map((dog) => {
+            return (
+              <div className="image__container" key={dog._id} onClick={() => onClick(dog._id)}>
+                <Image src={TestImage} width={150} height={150} alt="TestImage" />
+              </div>
+            );
+          })}
         </div>
       </CardContainer>
     </Container>

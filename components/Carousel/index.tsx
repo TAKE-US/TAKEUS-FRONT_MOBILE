@@ -11,7 +11,7 @@ const CarouselContainer = styled.section`
 `;
 
 interface CarouselPropType {
-  listRef: any;
+  listRef: React.MutableRefObject<HTMLDivElement | null>;
   movingValue: number;
 }
 
@@ -32,8 +32,6 @@ const Carousel = ({ listRef, movingValue }: CarouselPropType): ReactElement => {
       });
     }
   };
-
-
 
   const RightScroll = () => {
     if (position < 1361) {
