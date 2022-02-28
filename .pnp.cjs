@@ -80,6 +80,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["react", "npm:17.0.2"],
             ["react-dom", "virtual:f99c12d32a63cca9313069885aac54829d9d7fe028163ef326f57182b99bfe80be50d29c862c5e1f23e050d5a0006cf66046d6ebae2147059e54e8424311cda0#npm:17.0.2"],
             ["react-google-login", "virtual:f99c12d32a63cca9313069885aac54829d9d7fe028163ef326f57182b99bfe80be50d29c862c5e1f23e050d5a0006cf66046d6ebae2147059e54e8424311cda0#npm:5.2.2"],
+            ["ts-pattern", "npm:3.3.5"],
             ["tslint", "virtual:f99c12d32a63cca9313069885aac54829d9d7fe028163ef326f57182b99bfe80be50d29c862c5e1f23e050d5a0006cf66046d6ebae2147059e54e8424311cda0#npm:6.1.3"],
             ["typescript", "patch:typescript@npm%3A4.5.5#~builtin<compat/typescript>::version=4.5.5&hash=493e53"],
             ["webpack", "virtual:f99c12d32a63cca9313069885aac54829d9d7fe028163ef326f57182b99bfe80be50d29c862c5e1f23e050d5a0006cf66046d6ebae2147059e54e8424311cda0#npm:5.69.1"]
@@ -12532,6 +12533,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["react", "npm:17.0.2"],
             ["react-dom", "virtual:f99c12d32a63cca9313069885aac54829d9d7fe028163ef326f57182b99bfe80be50d29c862c5e1f23e050d5a0006cf66046d6ebae2147059e54e8424311cda0#npm:17.0.2"],
             ["react-google-login", "virtual:f99c12d32a63cca9313069885aac54829d9d7fe028163ef326f57182b99bfe80be50d29c862c5e1f23e050d5a0006cf66046d6ebae2147059e54e8424311cda0#npm:5.2.2"],
+            ["ts-pattern", "npm:3.3.5"],
             ["tslint", "virtual:f99c12d32a63cca9313069885aac54829d9d7fe028163ef326f57182b99bfe80be50d29c862c5e1f23e050d5a0006cf66046d6ebae2147059e54e8424311cda0#npm:6.1.3"],
             ["typescript", "patch:typescript@npm%3A4.5.5#~builtin<compat/typescript>::version=4.5.5&hash=493e53"],
             ["webpack", "virtual:f99c12d32a63cca9313069885aac54829d9d7fe028163ef326f57182b99bfe80be50d29c862c5e1f23e050d5a0006cf66046d6ebae2147059e54e8424311cda0#npm:5.69.1"]
@@ -12762,6 +12764,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/treeify-npm-1.1.0-abf9292333-aa00dded22.zip/node_modules/treeify/",
           "packageDependencies": [
             ["treeify", "npm:1.1.0"]
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
+      ["ts-pattern", [
+        ["npm:3.3.5", {
+          "packageLocation": "./.yarn/cache/ts-pattern-npm-3.3.5-757eda8e1b-c6f7b9b901.zip/node_modules/ts-pattern/",
+          "packageDependencies": [
+            ["ts-pattern", "npm:3.3.5"]
           ],
           "linkType": "HARD",
         }]
