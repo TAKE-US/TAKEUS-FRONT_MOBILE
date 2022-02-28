@@ -1,9 +1,11 @@
 import axios from 'axios';
 import { match } from 'ts-pattern';
-import { ERROR_TYPE } from '../types/error';
 
-axios.defaults.baseURL =
-  process.env.NODE_ENV === 'development' ? process.env.DEV_API_URL : process.env.DEPLOY_API_URL;
+enum ERROR_TYPE {
+  'NOT_ERROR',
+  'CLIENT_ERROR',
+  'SERVER_ERROR',
+}
 
 interface getDogsResp {
   status: number;
@@ -12,6 +14,8 @@ interface getDogsResp {
     dogList: Array<string>;
   } | null;
 }
+
+axios.defaults.baseURL = process.env.API_URL;
 
 const getErrorType = (statusCode: number): ERROR_TYPE | null => {
   return match(statusCode)
