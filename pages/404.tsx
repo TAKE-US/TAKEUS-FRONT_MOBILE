@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import styled from '@emotion/styled';
+import { useRouter } from 'next/router';
 
 import Loading from '@assets/Loading.gif';
 import { VerticalAlign } from '@styles/common';
@@ -24,11 +25,16 @@ const Container = styled.div`
 `;
 
 export default function Custom404() {
+  const router = useRouter();
+  const onClick = () => {
+    router.push('/');
+  };
+
   return (
     <Container>
       <Image src={Loading} width={350} height={350} alt="Loading Image" />
       <p>존재하지 않는 페이지입니다.</p>
-      <button>메인 페이지로 돌아가기</button>
+      <button onClick={onClick}>메인 페이지로 돌아가기</button>
     </Container>
   );
 }
