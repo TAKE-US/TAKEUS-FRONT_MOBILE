@@ -1,5 +1,7 @@
 type ModalPropType = {
   onSubmit: fn;
+  onClose: fn;
+  prop: object;
 };
 
 export type Modal = {

@@ -26,7 +26,9 @@ const Modals = (): JSX.Element => {
           onClose();
         };
 
-        return <Component key={index} onSubmit={handleSubmit} restProps={restProps} />;
+        return (
+          <Component key={index} onSubmit={handleSubmit} onClose={onClose} restProps={restProps} />
+        );
       })}
     </>
   );
