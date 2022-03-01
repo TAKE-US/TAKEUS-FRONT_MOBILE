@@ -1,4 +1,5 @@
 import styled from '@emotion/styled';
+import { useRouter } from 'next/router';
 
 import { modalList } from '@components/Modals';
 import useModals from '@hooks/useModals';
@@ -16,20 +17,25 @@ const Container = styled.header`
 const LoginButton = styled.button`
   border: 1px solid;
   border-radius: 4px;
+  padding: 0.3rem;
   font: ${({ theme }) => theme.font.smallheading1_btn};
 `;
 
 const Header = () => {
+  const router = useRouter();
   const { openModal } = useModals();
   const handleSidebar = () => {
     openModal(modalList.SideBar);
+  };
+  const handleLoginButton = () => {
+    router.push('/login');
   };
 
   return (
     <Container>
       <HamburgerBtn onClick={handleSidebar} />
       <TakeusLogo />
-      <LoginButton>로그인</LoginButton>
+      <LoginButton onClick={handleLoginButton}>로그인</LoginButton>
     </Container>
   );
 };
