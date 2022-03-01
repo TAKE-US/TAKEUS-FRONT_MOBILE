@@ -7,6 +7,7 @@ import { modalList } from '@components/Modals';
 import useModals from '@hooks/useModals';
 
 import { VerticalAlign } from '@styles/common';
+import DeleteIcon from '@assets/DeleteIcon.svg';
 
 const SideBarContainer = styled.aside`
   ${VerticalAlign}
@@ -19,7 +20,7 @@ const SideBarContainer = styled.aside`
   position: absolute;
   align-items: flex-start;
   z-index: 3;
-  font: ${({ theme }) => theme.font.body1};
+  font: ${({ theme }) => theme.font.title2_btn};
   background-color: ${({ theme }) => theme.color.white};
 
   & > .XBtn {
@@ -59,13 +60,11 @@ const SideBar = (): ReactElement => {
     <Container>
       <SideBarContainer>
         <div className="XBtn" onClick={handleClose}>
-          {' '}
-          X{' '}
+          <DeleteIcon />
         </div>
         <span> Login </span>
         <ul>
           <Link href={'/'}>홈</Link>
-          <Link href={'/'}>이동봉사 정보</Link>
           <Link href={'/'}>대상견 찾기</Link>
           <Link href={'/'}>이동봉사 후기</Link>
           <Link href={'/'}>About us</Link>
