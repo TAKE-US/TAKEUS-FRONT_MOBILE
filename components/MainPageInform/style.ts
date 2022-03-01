@@ -5,7 +5,7 @@ export const InformContainer = styled.div`
   ${VerticalAlign}
   width: 100%;
   align-items: center;
-  margin-bottom: 14rem;
+  margin-bottom: 0.5rem;
 `;
 
 export const BeforeVolunteerContainer = styled.section`
