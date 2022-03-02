@@ -9,7 +9,7 @@ import MainPageInform from '@components/MainPageInform';
 import { getDogs } from '@service/network';
 import { VerticalAlign } from '@styles/common';
 import Loading from '@assets/Loading.gif';
-import { DogCardListType } from '../types/dog';
+import { DogCardListType } from '@Customtypes/dog';
 
 const NextPageContainer = styled.div`
   ${VerticalAlign};

@@ -1,6 +1,6 @@
 import { useContext } from 'react';
 import { ModalsDispatchContext } from '@context/ModalsContext';
-import { ModalsDispatch } from '../types/modal';
+import { ModalsDispatch } from '@Customtypes/modal';
 
 export default function useModals() {
   const { open, close } = useContext(ModalsDispatchContext) as ModalsDispatch;

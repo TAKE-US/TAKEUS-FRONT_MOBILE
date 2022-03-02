@@ -1,5 +1,6 @@
 import { ReactElement } from 'react';
 import styled from '@emotion/styled';
+import { DropdownSelectProp, DataProp } from '@Customtypes/dropdown';
 
 import DropdownArrow from '@assets/DropdownArrow.svg';
 import { SpaceBetween } from '@styles/common';
@@ -12,15 +13,6 @@ const DropdownContainer = styled.div`
     color: ${({ theme }) => theme.color.gray3};
   }
 `;
-
-interface DropdownSelectProp<T> {
-  name: string;
-  data?: Array<T>;
-}
-
-interface DataProp {
-  name: string;
-}
 
 const Dropdown = ({ name, data }: DropdownSelectProp<Array<DataProp>>): ReactElement => {
   return (

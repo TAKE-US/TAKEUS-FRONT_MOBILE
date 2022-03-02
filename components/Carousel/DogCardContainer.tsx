@@ -7,7 +7,7 @@ import Carousel from '@components/Carousel';
 
 import { SpaceAround } from '@styles/common';
 import TestImage from '@assets/TestImage.png';
-import { DogCardListType } from '../../types/dog';
+import { DogCardListType } from '@Customtypes/dog';
 
 const Container = styled.div`
   height: 30%;
