@@ -1,6 +1,6 @@
 import React, { ReactElement } from 'react';
 import styled from '@emotion/styled';
-import Link from 'next/link';
+import { useRouter } from 'next/router';
 
 import Overlay from '@components/Overlay';
 import { modalList } from '@components/Modals';
@@ -36,7 +36,7 @@ const SideBarContainer = styled.aside`
 
   & > ul {
     ${VerticalAlign}
-    height: 20%;
+    height: 25%;
     justify-content: space-around;
   }
 `;
@@ -51,8 +51,13 @@ const Container = styled.div`
 `;
 
 const SideBar = (): ReactElement => {
+  const router = useRouter();
   const { closeModal } = useModals();
   const handleClose = () => {
+    closeModal(modalList.SideBar);
+  };
+  const handleMove = (url: string) => {
+    router.push(url);
     closeModal(modalList.SideBar);
   };
 
@@ -62,12 +67,12 @@ const SideBar = (): ReactElement => {
         <div className="XBtn" onClick={handleClose}>
           <DeleteIcon />
         </div>
-        <span> Login </span>
         <ul>
-          <Link href={'/'}>홈</Link>
-          <Link href={'/'}>대상견 찾기</Link>
-          <Link href={'/'}>이동봉사 후기</Link>
-          <Link href={'/'}>About us</Link>
+          <span onClick={() => handleMove('/')}>홈</span>
+          <span onClick={() => handleMove('/information')}>이동봉사 정보</span>
+          <span onClick={() => handleMove('/dogs')}>대상견 찾기</span>
+          <span onClick={() => handleMove('/reviews')}>이동봉사 후기</span>
+          <span onClick={() => handleMove('/about')}>About us</span>
         </ul>
       </SideBarContainer>
       <Overlay onClose={handleClose} />
