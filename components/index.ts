@@ -7,5 +7,4 @@ export { default as MainPageInform } from './MainPageInform';
 export { default as DogCardContainer } from './Carousel/DogCardContainer';
 
 // Common
-export { default as Dropdown } from './Common/Dropdown';
 export { default as Footer } from './Common/Footer';

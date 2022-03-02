@@ -1,4 +1,5 @@
 import { ReactElement } from 'react';
+import styled from '@emotion/styled';
 
 import { DropdownSelectProp, DataProp } from '@Customtypes/dropdown';
 
@@ -15,6 +16,7 @@ const SearchBarDropdown = () => {
         <Dropdown name={'도착 공항'} />
       </div>
       <SeacrhBtn />
+      <DropdownSelect />
     </SearchBarFormContainer>
   );
 };
@@ -29,6 +31,16 @@ function Dropdown({ name, data }: DropdownSelectProp<Array<DataProp>>): ReactEle
       <DropdownArrow />
     </DropdownContainer>
   );
+}
+
+const SelectContainer = styled.div`
+  width: 100vw;
+  height: 50vh;
+  background-color: ${({ theme }) => theme.color.primary};
+`;
+
+function DropdownSelect(): ReactElement {
+  return <>Hello</>;
 }
 
 export default SearchBarDropdown;
