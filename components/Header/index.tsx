@@ -1,7 +1,7 @@
 import styled from '@emotion/styled';
 import { useRouter } from 'next/router';
-
 import { useState, useEffect } from 'react';
+
 import { modalList } from '@components/Modals';
 import useModals from '@hooks/useModals';
 
