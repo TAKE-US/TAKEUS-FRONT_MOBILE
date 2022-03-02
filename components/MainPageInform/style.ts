@@ -5,8 +5,6 @@ export const InformContainer = styled.div`
   ${VerticalAlign}
   width: 100%;
   align-items: center;
-  height: 100%;
-  overflow-y: scroll;
 `;
 
 export const BeforeVolunteerContainer = styled.section`
