@@ -1,7 +1,7 @@
 import React from 'react';
 import Image from 'next/image';
 
-import SearchBarDropdown from '@components/SearchBarDropdown';
+import SearchBarDropdown from '@components/SearchBarForm';
 import { Container, SearchBarContainer } from './style';
 import MainBackGroundImage from '@assets/MainBackground.png';
 
