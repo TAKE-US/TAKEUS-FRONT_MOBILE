@@ -3,7 +3,7 @@ import Image from 'next/image';
 
 import Header from '@components/Header';
 import SearchBar from '@components/SearchBar';
-import DogCardContainer from '@components/Carousel/DogCardContainer';
+import DogCardContainer from '@components/DogCardContainer';
 import MainPageInform from '@components/MainPageInform';
 
 import { getDogs } from '@service/network';
