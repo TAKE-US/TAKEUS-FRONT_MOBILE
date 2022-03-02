@@ -84,7 +84,7 @@ const Login = () => {
         </div>
         < /div>
         <GoogleLogin
-          clientId={'490242867421-0i9ikdrk4uql4agn2gr6q57btgvphlga.apps.googleusercontent.com'}
+          clientId={process.env.GOOGLE_API_KEY}
           render={(renderProps) => (
             <button onClick={renderProps.onClick}>
               <GoogleIcon />
