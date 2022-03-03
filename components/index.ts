@@ -7,10 +7,10 @@ export { default as DogCardContainer } from './DogCardContainer';
 
 // SearchBar
 export { default as SearchBar } from './SearchBar';
-export { default as SearchBarDropdown } from './SearchBarDropdown';
 export { default as SearchBarForm } from './SearchBarForm';
 
 // Common
 export { default as Footer } from './Common/Footer';
 export { default as DropdownSelector } from './Common/DropdownSelector';
 export { default as Carousel } from './Common/Carousel';
+export { default as Mobile } from './Common/Mobile';
