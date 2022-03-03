@@ -2,7 +2,6 @@ import Header from '@components/Header';
 import SearchBar from '@components/SearchBar';
 import DogCardContainer from '@components/DogCardContainer';
 import MainPageInform from '@components/MainPageInform';
-import DropdownSelector from '@components/Common/DropdownSelector';
 import Mobile from '@components/Common/Mobile';
 
 import { getDogs } from '@service/dogs';
@@ -20,7 +19,6 @@ const Home = ({ dogListCarousel, countryAirportList }: HomePageProps) => {
   return (
     <NextPageContainer>
       <div className="mobile">
-        <DropdownSelector />
         <Header />
         <SearchBar countryAirportList={countryAirportList} />
         <DogCardContainer dogListCarousel={dogListCarousel} />
