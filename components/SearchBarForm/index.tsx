@@ -1,15 +1,28 @@
 import { ReactElement } from 'react';
-import { SearchBarFormContainer } from './style';
-import SearchBarDropdown from '@components/SearchBarDropdown';
-import SeacrhBtn from '@assets/SearchBtn.svg';
 
-const SearchBarForm = (): ReactElement => {
+import { SearchBarFormContainer, DropdownContainer } from './style';
+import SeacrhBtn from '@assets/SearchBtn.svg';
+import { countryAirportType } from '@Customtypes/utils';
+import DropdownArrow from '@assets/DropdownArrow.svg';
+
+const SearchBarForm = ({
+  countryAirportList,
+}: {
+  countryAirportList: countryAirportType;
+}): ReactElement => {
+  console.log(countryAirportList);
   return (
     <SearchBarFormContainer>
       <div className="dropdown__container">
-        <SearchBarDropdown name={'국가'} />
+        <DropdownContainer>
+          <p>{'국가'}</p>
+          <DropdownArrow />
+        </DropdownContainer>
         <div className="contour"></div>
-        <SearchBarDropdown name={'도착 공항'} />
+        <DropdownContainer>
+          <p>{'도착 공항'}</p>
+          <DropdownArrow />
+        </DropdownContainer>
       </div>
       <SeacrhBtn />
     </SearchBarFormContainer>
