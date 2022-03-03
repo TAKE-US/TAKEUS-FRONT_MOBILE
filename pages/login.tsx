@@ -3,7 +3,7 @@ import { useRouter } from 'next/router';
 import styled from '@emotion/styled';
 import { GoogleLogin } from 'react-google-login';
 
-import { postToken } from '@service/network';
+import { postToken } from '@service/utils';
 
 import { VerticalAlign, Center, SpaceAround } from '@styles/common';
 import LoginBackGround from '@assets/LoginBackGround.png';

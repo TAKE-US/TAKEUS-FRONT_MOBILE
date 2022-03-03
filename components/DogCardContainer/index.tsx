@@ -52,7 +52,11 @@ const CardContainer = styled.article`
   }
 `;
 
-const DogCardContainer = ({ data }: { data: DogCardListType }): ReactElement => {
+const DogCardContainer = ({
+  dogListCarousel,
+}: {
+  dogListCarousel: DogCardListType;
+}): ReactElement => {
   const listRef = React.useRef<HTMLDivElement | null>(null);
   const movingValue = 162;
 
@@ -72,7 +76,7 @@ const DogCardContainer = ({ data }: { data: DogCardListType }): ReactElement => 
       </div>
       <CardContainer>
         <div className="card__container" ref={listRef}>
-          {data?.map((dog) => {
+          {dogListCarousel?.map((dog) => {
             return (
               <div className="image__container" key={dog._id} onClick={() => onClick(dog._id)}>
                 <Image src={TestImage} width={150} height={150} alt="TestImage" />
