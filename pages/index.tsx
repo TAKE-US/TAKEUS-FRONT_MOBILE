@@ -1,63 +1,45 @@
-import styled from '@emotion/styled';
-import Image from 'next/image';
-
 import Header from '@components/Header';
 import SearchBar from '@components/SearchBar';
 import DogCardContainer from '@components/DogCardContainer';
 import MainPageInform from '@components/MainPageInform';
+import DropdownSelector from '@components/Common/DropdownSelector';
+import Mobile from '@components/Common/Mobile';
 
-import { getDogs } from '@service/network';
-import { VerticalAlign } from '@styles/common';
-import Loading from '@assets/Loading.gif';
+import { getDogs } from '@service/dogs';
+import { getCountryAndAirport } from '@service/utils';
+import { NextPageContainer } from '@styles/pageStyle';
 import { DogCardListType } from '@Customtypes/dog';
+import { countryAirportType } from '@Customtypes/utils';
 
-const NextPageContainer = styled.div`
-  ${VerticalAlign};
-  justify-content: space-between;
-  align-items: center;
+interface HomePageProps {
+  dogListCarousel: DogCardListType;
+  countryAirportList: countryAirportType;
+}
 
-  & > .mobile {
-    display: none;
-    @media all and (max-width: 768px) {
-      display: block;
-    }
-  }
-
-  & > .desktop {
-    ${VerticalAlign};
-    align-items: center;
-    margin-top: 15rem;
-    font: ${({ theme }) => theme.font.title1};
-    @media all and (max-width: 768px) {
-      display: none;
-    }
-  }
-`;
-
-const Home = ({ data }: { data: DogCardListType }) => {
+const Home = ({ dogListCarousel, countryAirportList }: HomePageProps) => {
   return (
     <NextPageContainer>
       <div className="mobile">
+        <DropdownSelector />
         <Header />
-        <SearchBar />
-        <DogCardContainer data={data} />
+        <SearchBar countryAirportList={countryAirportList} />
+        <DogCardContainer dogListCarousel={dogListCarousel} />
         <MainPageInform />
       </div>
-      <div className="desktop">
-        <p>모바일 버전입니다.</p>
-        <p>화면 크기를 더 줄여주세요 :)</p>
-        <Image src={Loading} width={450} height={450} alt="Loading Image" />
-      </div>
+      <Mobile />
     </NextPageContainer>
   );
 };
 
 export async function getStaticProps() {
-  const { data } = await getDogs();
-  const dogListwithCarousel = data?.dogList.slice(0, 10);
+  const { dogList } = await getDogs();
+  const dogListCarousel = dogList.slice(0, 10);
+  const { countryAirportList } = await getCountryAndAirport();
+
   return {
     props: {
-      data: dogListwithCarousel,
+      dogListCarousel,
+      countryAirportList,
     },
     revalidate: 2000,
   };
