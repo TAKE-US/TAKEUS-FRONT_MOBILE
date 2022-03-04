@@ -7,19 +7,23 @@ import { SelectorContainer } from './style';
 import DeleteIcon from '@assets/DeleteIcon.svg';
 
 const CountryDropdown = (props: any): ReactElement => {
+  const { closeModal } = useModals();
   const {
     restProps: { countryList },
+    onSubmit,
   } = props;
 
-  const { closeModal } = useModals();
   const handleClose = () => {
     closeModal(modalList.CountryDropdown);
+  };
+  const handleClick = (e: React.MouseEvent) => {
+    onSubmit(e.currentTarget.textContent);
   };
 
   return (
     <div className="country__container">
-      <Overlay height={40} onClose={handleClose} />
-      <SelectorContainer>
+      <Overlay onClose={handleClose} />
+      <SelectorContainer height={40} isBorder={false}>
         <section>
           <div className="XButton">
             <DeleteIcon onClick={handleClose} />
@@ -27,9 +31,8 @@ const CountryDropdown = (props: any): ReactElement => {
           <ul className="list">
             {countryList.map((country: string) => {
               return (
-                <li className="item" key={country}>
+                <li className="item" key={country} onClick={handleClick}>
                   <p className="city"> {country}</p>
-                  <p className="airport">덜레스 국제공항</p>
                 </li>
               );
             })}
