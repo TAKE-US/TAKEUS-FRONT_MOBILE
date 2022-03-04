@@ -23,8 +23,8 @@ const Modals = (): JSX.Element => {
           close(Component);
         };
 
-        const handleSubmit = async () => {
-          if (typeof onSubmit === 'function') await onSubmit();
+        const handleSubmit = async (value?: string) => {
+          if (typeof onSubmit === 'function') await onSubmit(value);
           onClose();
         };
 
