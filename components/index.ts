@@ -13,4 +13,4 @@ export { default as SearchBarForm } from './SearchBarForm';
 export { default as Footer } from './Common/Footer';
 export { default as DropdownSelector } from './Common/DropdownSelector';
 export { default as Carousel } from './Common/Carousel';
-export { default as Mobile } from './Common/Mobile';
+export { default as MobileInform } from './Common/MobileInform';
