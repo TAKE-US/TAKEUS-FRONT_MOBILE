@@ -1,56 +1,11 @@
 import React, { ReactElement } from 'react';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
-import styled from '@emotion/styled';
-
 import Carousel from '@components/Common/Carousel';
 
-import { SpaceAround } from '@styles/common';
 import TestImage from '@assets/TestImage.png';
 import { DogCardListType } from '@Customtypes/dog';
-
-const Container = styled.div`
-  height: 30%;
-  width: 100%;
-  margin-top: -1rem;
-  flex-direction: column;
-
-  .title__container {
-    ${SpaceAround}
-    align-items: center;
-
-    h4 {
-      text-align: left;
-      vertical-align: center;
-      font: ${({ theme }) => theme.font.title1};
-    }
-  }
-`;
-
-const CardContainer = styled.article`
-  width: 100%;
-  height: 50%;
-  display: flex;
-  margin-bottom: 4rem;
-
-  .card__container {
-    margin-top: 1rem;
-    margin-left: 1.8rem;
-    display: flex;
-    flex-wrap: nowrap;
-    overflow-x: auto;
-    gap: 0.4rem;
-    -webkit-overflow-scrolling: touch;
-    &::-webkit-scrollbar {
-      display: none;
-    }
-  }
-
-  .image__container {
-    margin-left: 0.4rem;
-    flex: 0 0 auto;
-  }
-`;
+import { Container, CardContainer } from './style';
 
 const DogCardContainer = ({
   dogListCarousel,
