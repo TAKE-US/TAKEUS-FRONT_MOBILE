@@ -23,11 +23,21 @@ export const SearchBarFormContainer = styled.div`
   }
 `;
 
-export const DropdownContainer = styled.div`
+type ContainerType = {
+  isCountrySelected: boolean;
+  isAirportSelected: boolean;
+};
+
+export const DropdownContainer = styled.div<ContainerType>`
   ${SpaceBetween}
   font: ${({ theme }) => theme.font.body1_medium};
   width: 45%;
-  & > p {
-    color: ${({ theme }) => theme.color.gray3};
+  & > .country {
+    color: ${(props) =>
+      props.isCountrySelected ? props.theme.color.black : props.theme.color.gray3};
+  }
+  & > .airport {
+    color: ${(props) =>
+      props.isCountrySelected ? props.theme.color.black : props.theme.color.gray3};
   }
 `;
