@@ -1,5 +1,4 @@
 import { ReactElement } from 'react';
-import useModals from '@hooks/useModals';
 import { modalList } from '@components/Modals';
 import Overlay from '@components/Overlay';
 
@@ -7,14 +6,14 @@ import { SelectorContainer } from './style';
 import DeleteIcon from '@assets/DeleteIcon.svg';
 
 const CountryDropdown = (props: any): ReactElement => {
-  const { closeModal } = useModals();
   const {
     restProps: { countryList },
     onSubmit,
+    onClose,
   } = props;
 
   const handleClose = () => {
-    closeModal(modalList.CountryDropdown);
+    onClose(modalList.CountryDropdown);
   };
   const handleClick = (e: React.MouseEvent) => {
     onSubmit(e.currentTarget.textContent);
