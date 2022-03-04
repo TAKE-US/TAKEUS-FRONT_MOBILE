@@ -9,7 +9,7 @@ import { SpaceBetween } from '@styles/common';
 import HamburgerBtn from '@assets/hamburgerbtn.svg';
 import TakeusLogo from '@assets/takeuslogo.svg';
 
-const Container = styled.header`
+const HeaderContainer = styled.header`
   ${SpaceBetween}
   height: 4rem;
   margin: 4rem 2rem 0 2rem;
@@ -49,13 +49,13 @@ const Header = () => {
   }, []);
 
   return (
-    <Container>
+    <HeaderContainer>
       <HamburgerBtn onClick={handleSidebar} />
       <TakeusLogo />
       <LoginButton onClick={!isLogin ? handleLoginButton : handleLogoutButton}>
         {!isLogin ? '로그인' : '로그아웃'}
       </LoginButton>
-    </Container>
+    </HeaderContainer>
   );
 };
 

@@ -14,7 +14,7 @@ const Container = styled.section`
   }
 `;
 
-const Mobile = () => {
+const MobileInform = () => {
   return (
     <Container>
       <p>모바일 버전입니다.</p>
@@ -24,4 +24,4 @@ const Mobile = () => {
   );
 };
 
-export default Mobile;
+export default MobileInform;

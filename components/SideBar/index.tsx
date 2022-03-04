@@ -41,7 +41,7 @@ const SideBarContainer = styled.aside`
   }
 `;
 
-const Container = styled.div`
+const TotalContainer = styled.div`
   position: fixed;
   top: 0;
   left: 0;
@@ -62,7 +62,7 @@ const SideBar = (): ReactElement => {
   };
 
   return (
-    <Container>
+    <TotalContainer>
       <SideBarContainer>
         <div className="XBtn" onClick={handleClose}>
           <DeleteIcon />
@@ -76,7 +76,7 @@ const SideBar = (): ReactElement => {
         </ul>
       </SideBarContainer>
       <Overlay onClose={handleClose} />
-    </Container>
+    </TotalContainer>
   );
 };
 

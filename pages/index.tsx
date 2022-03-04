@@ -2,7 +2,7 @@ import Header from '@components/Header';
 import SearchBar from '@components/SearchBar';
 import DogCardContainer from '@components/DogCardContainer';
 import MainPageInform from '@components/MainPageInform';
-import Mobile from '@components/Common/Mobile';
+import MobileInform from '@components/Common/MobileInform';
 
 import { getDogs } from '@service/dogs';
 import { getCountryAndAirport } from '@service/utils';
@@ -24,7 +24,7 @@ const Home = ({ dogListCarousel, countryAirportList }: HomePageProps) => {
         <DogCardContainer dogListCarousel={dogListCarousel} />
         <MainPageInform />
       </div>
-      <Mobile />
+      <MobileInform />
     </NextPageContainer>
   );
 };
@@ -33,6 +33,7 @@ export async function getStaticProps() {
   const { dogList } = await getDogs();
   const dogListCarousel = dogList.slice(0, 10);
   const { countryAirportList } = await getCountryAndAirport();
+  console.log(countryAirportList);
 
   return {
     props: {
