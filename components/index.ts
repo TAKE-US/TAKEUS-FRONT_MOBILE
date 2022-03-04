@@ -5,10 +5,6 @@ export { default as SideBar } from './SideBar';
 export { default as MainPageInform } from './MainPageInform';
 export { default as DogCardContainer } from './DogCardContainer';
 
-// Dropdown
-export { default as CountryDropdown } from './Dropdown/CountryDropdown';
-export { default as AirportDropdown } from './Dropdown/AirportDropdown';
-
 // SearchBar
 export { default as SearchBar } from './SearchBar';
 export { default as SearchBarForm } from './SearchBarForm';
