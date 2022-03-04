@@ -33,7 +33,6 @@ export async function getStaticProps() {
   const { dogList } = await getDogs();
   const dogListCarousel = dogList.slice(0, 10);
   const { countryAirportList } = await getCountryAndAirport();
-  console.log(countryAirportList);
 
   return {
     props: {
