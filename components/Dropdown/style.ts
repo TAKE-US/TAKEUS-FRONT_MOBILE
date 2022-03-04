@@ -1,12 +1,17 @@
 import styled from '@emotion/styled';
 import { VerticalAlign } from '@styles/common';
 
-export const SelectorContainer = styled.div`
+type SelectorPropType = {
+  height: number;
+  isBorder: boolean;
+};
+
+export const SelectorContainer = styled.div<SelectorPropType>`
   position: fixed;
   bottom: 0;
   z-index: 2;
   width: 100vw;
-  height: 60vh;
+  height: ${(props) => props.height && `${props.height}vh`};
 
   & > section {
     background-color: ${({ theme }) => theme.color.white};
@@ -30,18 +35,28 @@ export const SelectorContainer = styled.div`
     height: 80%;
     list-style: none;
     overflow: scroll;
+    &::-webkit-scrollbar {
+      display: none;
+    }
 
     .item {
       ${VerticalAlign}
       justify-content: space-around;
       border-bottom: 1px solid;
       height: 22%;
-      border-color: ${({ theme }) => theme.color.gray1};
+      border-color: ${(props) =>
+        props.isBorder ? props.theme.color.gray1 : props.theme.color.white};
     }
 
     .country {
       font: ${({ theme }) => theme.font.body2_btn};
       color: ${({ theme }) => theme.color.gray2};
+    }
+
+    .city {
+      font: ${({ theme }) => theme.font.body1_medium_btn};
+      color: ${({ theme }) => theme.color.black};
+      padding-left: 1rem;
     }
 
     .airport {
