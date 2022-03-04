@@ -1,7 +1,8 @@
+type AllowedKeys = 'countryList' | 'airportList';
+
 export type dropdownPropType = {
   restProps: {
-    countryList?: Array<stirng>;
-    airportList?: Array<string>;
+    [key in AllowedKeys]: Array<stirng>;
   };
   onSubmit: fn;
   onClose: fn;
