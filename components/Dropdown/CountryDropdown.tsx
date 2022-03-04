@@ -4,8 +4,9 @@ import Overlay from '@components/Overlay';
 
 import { SelectorContainer } from './style';
 import DeleteIcon from '@assets/DeleteIcon.svg';
+import { dropdownPropType } from '@Customtypes/dropdown';
 
-const CountryDropdown = (props: any): ReactElement => {
+const CountryDropdown = (props: dropdownPropType): ReactElement => {
   const {
     restProps: { countryList },
     onSubmit,
