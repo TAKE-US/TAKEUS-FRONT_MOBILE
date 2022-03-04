@@ -1,4 +1,7 @@
-import { ReactElement } from 'react';
+import { ReactElement, useState } from 'react';
+
+import { modalList } from '@components/Modals';
+import useModals from '@hooks/useModals';
 
 import { SearchBarFormContainer, DropdownContainer } from './style';
 import SeacrhBtn from '@assets/SearchBtn.svg';
@@ -10,17 +13,36 @@ const SearchBarForm = ({
 }: {
   countryAirportList: countryAirportType;
 }): ReactElement => {
-  console.log(countryAirportList);
+  const [country, setCountry] = useState<string | null>(null);
+  const [airport, setAirport] = useState<string | null>(null);
+  const { openModal, closeModal } = useModals();
+
+  const handleCountry = (value: string) => {
+    setCountry(value);
+  };
+
+  const handleCountryList = () => {
+    openModal(modalList.CountryDropdown, {
+      countryList: Object.keys(countryAirportList),
+      onSubmit: handleCountry,
+      onClose: closeModal,
+    });
+  };
+
   return (
     <SearchBarFormContainer>
       <div className="dropdown__container">
-        <DropdownContainer>
-          <p>{'국가'}</p>
+        <DropdownContainer
+          isCountrySelected={country}
+          isAirportSelected={airport}
+          onClick={handleCountryList}
+        >
+          <p className="country">{country ? country : '국가'}</p>
           <DropdownArrow />
         </DropdownContainer>
         <div className="contour"></div>
         <DropdownContainer>
-          <p>{'도착 공항'}</p>
+          <p className="airport">{airport ? airport : '도착 공항'}</p>
           <DropdownArrow />
         </DropdownContainer>
       </div>
