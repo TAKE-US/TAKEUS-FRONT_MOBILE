@@ -27,11 +27,9 @@ export const getCountryAndAirport = async () => {
     data: { data },
   } = await instance.get('/api/airports/country');
 
-  const result = Object.keys(data)
-    .filter((v) => v !== '_id')
-    .map((key) => data[key]);
+  const { _id, ...countryAirportList } = data;
 
   return {
-    countryAirportList: result,
+    countryAirportList: countryAirportList,
   };
 };
