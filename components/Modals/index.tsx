@@ -1,14 +1,14 @@
 import React, { useContext } from 'react';
 
 import SideBar from '@components/SideBar';
-import DropdownSelector from '@components/Common/DropdownSelector';
+import CountryDropdown from '@components/Dropdown/CountryDropdown';
 import { ModalsDispatchContext, ModalsStateContext } from '@context/ModalsContext';
 
 import { ModalListState, ModalsDispatch } from '@Customtypes/modal';
 
 export const modalList = {
   SideBar,
-  DropdownSelector,
+  CountryDropdown,
 };
 
 const Modals = (): JSX.Element => {
