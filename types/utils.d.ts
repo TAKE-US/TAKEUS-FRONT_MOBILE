@@ -1,6 +1,8 @@
-export type countryAirportType = {
-  [index: string]: string;
-  string: {
-    string: Array<string>;
-  };
-};
+export type countryAirportType =
+  | {
+      [index: string]: string;
+      string: {
+        string: Array<string>;
+      };
+    }
+  | never;
