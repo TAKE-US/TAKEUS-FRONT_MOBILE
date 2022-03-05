@@ -6,3 +6,8 @@ export type DepartureType =
       };
     }
   | Record<string, never>;
+
+export type DepartureContextType = {
+  departureList: DepartureType;
+  setDepartureList: (list: DepartureType) => void;
+};
