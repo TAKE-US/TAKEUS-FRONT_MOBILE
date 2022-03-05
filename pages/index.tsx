@@ -3,12 +3,12 @@ import SearchBar from '@components/SearchBar';
 import DogCardContainer from '@components/DogCardContainer';
 import MainPageInform from '@components/MainPageInform';
 import MobileInform from '@components/Common/MobileInform';
-
 import { getDogs } from '@service/dogs';
 import { getDepartureList } from '@service/utils';
-import { NextPageContainer } from '@styles/pageStyle';
-import { DogCardListType } from '@Customtypes/dog';
+
 import { DepartureType } from '@Customtypes/utils';
+import { DogCardListType } from '@Customtypes/dog';
+import { NextPageContainer } from '@styles/MainPageStyle';
 
 interface HomePageProps {
   dogListCarousel: DogCardListType;
