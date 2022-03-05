@@ -20,7 +20,6 @@ const SearchBarForm = ({
   const handleCountry = (value: string) => {
     setCountry(value);
   };
-
   const handleCountryList = () => {
     openModal(modalList.CountryDropdown, {
       countryList: Object.keys(countryAirportList),
@@ -29,20 +28,30 @@ const SearchBarForm = ({
     });
   };
 
+  const handleAirport = (value: string) => {
+    setAirport(value);
+  };
+  const handleAirportList = () => {
+    const cityList = Object.keys(countryAirportList[country as string]);
+    const airportList = Object.values(countryAirportList[country as string]).map((v) => v[0]);
+    openModal(modalList.AirportDropdown, {
+      cityList,
+      airportList,
+      onSubmit: handleAirport,
+      onClose: closeModal,
+    });
+  };
+
   return (
     <SearchBarFormContainer>
       <div className="dropdown__container">
-        <DropdownContainer
-          isCountrySelected={country}
-          isAirportSelected={airport}
-          onClick={handleCountryList}
-        >
+        <DropdownContainer isCountrySelected={country} onClick={handleCountryList}>
           <p className="country">{country ? country : '국가'}</p>
           <DropdownArrow />
         </DropdownContainer>
         <div className="contour"></div>
-        <DropdownContainer>
-          <p className="airport">{airport ? airport : '도착 공항'}</p>
+        <DropdownContainer isAirportSelected={airport} onClick={handleAirportList}>
+          <p className="airport">{airport ? airport.slice(0, 8) : '도착 공항'}</p>
           <DropdownArrow />
         </DropdownContainer>
       </div>
