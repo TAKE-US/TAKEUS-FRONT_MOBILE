@@ -2,12 +2,18 @@ import { useContext } from 'react';
 import { DepartureStateContext } from 'context/DepartureContext';
 
 export default function useDeparture() {
-  const value = useContext(DepartureStateContext);
-  if (!value) return;
+  const { departureList, setDepartureList } = useContext(DepartureStateContext);
 
-  const { departureList, setDepartureList } = value;
+  const getCountryList = () => Object.keys(departureList);
+  const getCityList = (country: string) => Object.keys(departureList[country]);
+  const getAirportList = (country: string) => {
+    return Object.values(departureList[country]).map((v) => v[0]);
+  };
+
   return {
-    departureList,
+    getCountryList,
+    getCityList,
+    getAirportList,
     setDepartureList,
   };
 }
