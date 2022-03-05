@@ -1,8 +1,8 @@
 export type countryAirportType =
   | {
       [index: string]: string;
-      string: {
+      string?: {
         string: Array<string>;
       };
     }
-  | unknown;
+  | Record<string, never>;

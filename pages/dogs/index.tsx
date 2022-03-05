@@ -33,7 +33,7 @@ const DogPageContainer = styled.div`
 
 const DogsPage = () => {
   const router = useRouter();
-  const [countryAirportList, setList] = useState<countryAirportType>(null);
+  const [countryAirportList, setList] = useState<countryAirportType>({});
 
   useEffect(() => {
     const handleList = async () => {
