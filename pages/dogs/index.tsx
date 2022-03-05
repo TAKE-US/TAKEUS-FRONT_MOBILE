@@ -1,46 +1,22 @@
-import React, { useEffect, useReducer, useState } from 'react';
+import React, { useEffect, useReducer } from 'react';
 import { useRouter } from 'next/router';
+import to from 'await-to-js';
 import Header from '@components/Header';
 import SearchBarForm from '@components/SearchBarForm';
-import { getDepartureList } from '@service/utils';
 import { getDogByAirport } from '@service/dogs';
-import to from 'await-to-js';
 
-import { DepartureType } from '@Customtypes/utils';
-
-import styled from '@emotion/styled';
-import { VerticalAlign } from '@styles/common';
-import { reducer } from '@utils/Component.reducer';
+import { reducer, State, Action } from '@utils/Component.reducer';
+import useDeparture from '@hooks/useDeparture';
 import { ERROR_TYPE } from '@service/index';
-import { DogCardListType } from '@Customtypes/dog';
-import { State, Action } from '@utils/Component.reducer';
+import { getDepartureList } from '@service/utils';
+import { DogCardListType, DepartureListPropType } from '@Customtypes/dog';
+import { DogPageContainer } from '@styles/DogPageStyle';
 
-const DogPageContainer = styled.div`
-  height: 100vh;
-  width: 100vw;
-
-  & > .header__wrapper {
-    height: 23%;
-    ${VerticalAlign}
-    justify-content: space-between;
-    align-items: center;
-    border-radius: 0 0 1rem 1rem;
-    background-color: ${({ theme }) => theme.color.lightgray1};
-
-    header {
-      width: 90%;
-    }
-
-    .content {
-      font: ${({ theme }) => theme.font.title2_btn};
-    }
-  }
-`;
-
-const DogsPage = () => {
+const DogsPage = ({ departureList }: DepartureListPropType) => {
   const router = useRouter();
-  const [airportList, setAirportList] = useState<DepartureType>({});
-  const [dogListState, dispatch] = useReducer<
+  const { setDepartureList } = useDeparture();
+
+  const [state, dispatch] = useReducer<
     React.Reducer<State<DogCardListType>, Action<DogCardListType>>
   >(reducer, {
     _TAG: 'IDLE',
@@ -70,31 +46,51 @@ const DogsPage = () => {
     }
   };
 
-  useEffect(() => {
-    const handleList = async () => {
-      const { countryAirportList } = await getDepartureList();
-      setAirportList(countryAirportList);
-    };
+  const handleSubmit = (airport: string) => {
+    handleDogList(airport);
+  };
 
-    handleList();
+  useEffect(() => {
     handleDogList(router.query.airport as string);
   }, [router.query.airport]);
 
-  // 처음 진입 : 검색 결과, 공항 리스트,
-  // 다시 클릭 시 : 검색 결과만 변경할 수 있도록
-  // Component.reducer.ts 에서 컴포넌트를 활용하자
-  // pattern Matching 활용하기
+  useEffect(() => {
+    setDepartureList(departureList);
+  }, [setDepartureList, departureList]);
 
   return (
     <DogPageContainer>
       <div className="header__wrapper">
-        <Header onClick={handleDogList} />
+        <Header />
         <p className="content">도움을 기다리는 입양견들을 만나보세요.</p>
-        <SearchBarForm countryAirportList={airportList} />
+        <SearchBarForm handleSubmit={handleSubmit} />
       </div>
-      This is the Dog Page
+      <div>
+        {(() => {
+          switch (state._TAG) {
+            case 'IDLE':
+              return 'IDLE';
+            case 'LOADING':
+              return 'LOADING';
+            case 'ERROR':
+              return 'ERROR';
+            case 'OK':
+              return state.message?.map((v) => <h3 key={v._id}> {v.name}</h3>);
+          }
+        })()}
+      </div>
     </DogPageContainer>
   );
 };
+
+export async function getStaticProps() {
+  const { departureList } = await getDepartureList();
+
+  return {
+    props: {
+      departureList,
+    },
+  };
+}
 
 export default DogsPage;
