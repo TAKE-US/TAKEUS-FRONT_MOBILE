@@ -32,7 +32,7 @@ const CountryDropdown = (props: dropdownPropType): ReactElement => {
             {countryList.map((country: string) => {
               return (
                 <li className="item" key={country} onClick={handleClick}>
-                  <p className="city"> {country}</p>
+                  <p className="city">{country}</p>
                 </li>
               );
             })}
