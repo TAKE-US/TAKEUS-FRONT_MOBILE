@@ -1,16 +1,15 @@
 import { ReactElement, useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
-
 import { modalList } from '@components/Modals';
 import useModals from '@hooks/useModals';
+import useDeparture from '@hooks/useDeparture';
+
 import { SearchBarFormContainer, DropdownContainer } from './style';
+import { SearchBarFormType } from '@Customtypes/dog';
 import SeacrhBtn from '@assets/SearchBtn.svg';
 import DropdownArrow from '@assets/DropdownArrow.svg';
 
-import { getDogByAirport } from '@service/dogs';
-import useDeparture from '@hooks/useDeparture';
-
-const SearchBarForm = (): ReactElement => {
+const SearchBarForm = ({ handleSubmit }: SearchBarFormType): ReactElement => {
   const router = useRouter();
   const [country, setCountry] = useState<string | undefined>(undefined);
   const [airport, setAirport] = useState<string | undefined>(undefined);
@@ -28,7 +27,6 @@ const SearchBarForm = (): ReactElement => {
       onClose: closeModal,
     });
   };
-
   const handleAirport = (value: string) => {
     setAirport(value);
   };
@@ -40,22 +38,14 @@ const SearchBarForm = (): ReactElement => {
       onClose: closeModal,
     });
   };
-
-  const handleRouter = (country: string, airport: string) => {
-    router.push({
-      pathname: 'dogs',
-      query: { country, airport },
-    });
-  };
-
-  const handleSubmit = () => {
+  const handleClick = () => {
     if (!(country && airport)) return;
     switch (router.pathname) {
       case '/':
-        handleRouter(country, airport);
+        handleSubmit(airport as string, country as string);
         break;
       case '/dogs':
-        getDogByAirport(airport);
+        handleSubmit(airport as string);
         break;
       default:
         return;
@@ -81,7 +71,7 @@ const SearchBarForm = (): ReactElement => {
         </DropdownContainer>
       </div>
       <SeacrhBtn
-        onClick={handleSubmit}
+        onClick={handleClick}
         fill={country && airport ? '#FDCB02' : '#FFFFFF'}
         stroke={country && airport ? '#FFFFFF' : '#FDCB02'}
       />
