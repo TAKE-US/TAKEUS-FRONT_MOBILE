@@ -38,6 +38,9 @@ const Header = () => {
     setIsLogin(null);
     router.push('/');
   };
+  const handleGoMainPage = () => {
+    router.push('/');
+  };
 
   useEffect(() => {
     const getIssuedAtTime = () => localStorage.getItem('issuedAt');
@@ -51,7 +54,7 @@ const Header = () => {
   return (
     <HeaderContainer>
       <HamburgerBtn onClick={handleSidebar} />
-      <TakeusLogo />
+      <TakeusLogo onClick={handleGoMainPage} />
       <LoginButton onClick={!isLogin ? handleLoginButton : handleLogoutButton}>
         {!isLogin ? '로그인' : '로그아웃'}
       </LoginButton>
