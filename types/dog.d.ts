@@ -1,3 +1,5 @@
+import { DepartureType } from '@Customtypes/utils';
+
 export type DogCardListType = Array<DogCardType>;
 
 export interface DogCardType {
@@ -23,4 +25,12 @@ export interface DogCardType {
   registerDate: string;
   __v: number;
   detail: string;
+}
+
+export interface SearchBarFormType {
+  handleSubmit: (airport: string, country?: string) => void;
+}
+
+export interface DepartureListPropType {
+  departureList: DepartureType;
 }
