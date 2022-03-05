@@ -1,10 +1,11 @@
+import { ReactElement } from 'react';
 import Image from 'next/image';
 import { DogCardType } from '@Customtypes/dog';
 import TestImage from '@assets/TestImage.png';
 import Location from '@assets/Location.svg';
 import { DogCardWrapper } from './style';
 
-const DogCard = ({ dogCardInfo }: { dogCardInfo: DogCardType }) => {
+const DogCard = ({ dogCardInfo }: { dogCardInfo: DogCardType }): ReactElement => {
   const { name, endingAirport, isInstitution, photos } = dogCardInfo;
   const RepImage = photos.find((v) => v.length > 0);
 
