@@ -1,18 +1,34 @@
-import { instance, getErrorType, ERROR_TYPE } from 'service/index';
+import { instance, isErrorByStatusCode, ERROR_TYPE } from 'service/index';
 
-interface getDogsResp {
-  status: number;
+interface DogListResponse {
   error: ERROR_TYPE | null;
   dogList: Array<string>;
+  length: number;
 }
 
-export const getDogs = async (): Promise<getDogsResp> => {
-  const data = await instance.get('/api/dogs');
-  const errorType = getErrorType(data.status);
+export const getDogs = async (): Promise<DogListResponse> => {
+  const { status, data } = await instance.get('/api/dogs');
+  const error = isErrorByStatusCode(status);
 
   return {
-    status: data.status,
-    error: errorType,
-    dogList: data.data.data,
+    error,
+    dogList: data.data,
+    length: data.data.length,
+  };
+};
+
+export const getDogByAirport = async (airport: string): Promise<DogListResponse> => {
+  const { status, data } = await instance.get(`/api/dogs/search/${airport}`, {
+    params: {
+      order: 'latest',
+      page: 1,
+    },
+  });
+  const error = isErrorByStatusCode(status);
+
+  return {
+    error,
+    dogList: data,
+    length: data.length,
   };
 };

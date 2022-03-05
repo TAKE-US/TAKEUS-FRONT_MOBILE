@@ -2,22 +2,21 @@ import { instance, isErrorByStatusCode } from '@service/index';
 
 export const postToken = async (token: string, social: string) => {
   const body = { token, social };
-  const data = await instance.post('/api/users/login', body, {
+  const { data, status } = await instance.post('/api/users/login', body, {
     headers: {
       'Content-Type': 'application/json',
     },
   });
-  const errorType = isErrorByStatusCode(data.status);
-  const result = {
-    id: data.data.id,
-    email: data.data.email,
-    token: data.data.accessToken,
-    issuedAt: data.data.issuedAt,
-  };
+  const error = isErrorByStatusCode(status);
 
+  const result = {
+    id: data.id,
+    email: data.email,
+    token: data.accessToken,
+    issuedAt: data.issuedAt,
+  };
   return {
-    status: data.status,
-    error: errorType,
+    error,
     data: result,
   };
 };
