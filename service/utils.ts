@@ -1,4 +1,4 @@
-import { instance, getErrorType } from '@service/index';
+import { instance, isErrorByStatusCode } from '@service/index';
 
 export const postToken = async (token: string, social: string) => {
   const body = { token, social };
@@ -7,7 +7,7 @@ export const postToken = async (token: string, social: string) => {
       'Content-Type': 'application/json',
     },
   });
-  const errorType = getErrorType(data.status);
+  const errorType = isErrorByStatusCode(data.status);
   const result = {
     id: data.data.id,
     email: data.data.email,

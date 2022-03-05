@@ -11,7 +11,7 @@ export const instance = axios.create({
   baseURL: process.env.API_URL,
 });
 
-export const getErrorType = (statusCode: number): ERROR_TYPE | null => {
+export const isErrorByStatusCode = (statusCode: number): ERROR_TYPE | null => {
   return match(statusCode)
     .with(200, () => ERROR_TYPE.NOT_ERROR)
     .with(400, 401, 403, () => ERROR_TYPE.CLIENT_ERROR)
