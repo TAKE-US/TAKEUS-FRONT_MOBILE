@@ -1,4 +1,4 @@
-type AllowedKeys = 'countryList' | 'airportList';
+type AllowedKeys = 'countryList' | 'cityList' | 'airportList';
 
 export type dropdownPropType = {
   restProps: {
