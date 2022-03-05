@@ -9,16 +9,14 @@ import { DepartureType } from '@Customtypes/utils';
 import DropdownArrow from '@assets/DropdownArrow.svg';
 
 import { getDogByAirport } from '@service/dogs';
+import useDeparture from '@hooks/useDeparture';
 
-const SearchBarForm = ({
-  countryAirportList,
-}: {
-  countryAirportList: DepartureType;
-}): ReactElement => {
+const SearchBarForm = (): ReactElement => {
   const [country, setCountry] = useState<string | null>('미국');
   const [airport, setAirport] = useState<string | null>('델러스 국제공항');
   const { openModal, closeModal } = useModals();
   const router = useRouter();
+  const { getCountryList, getCityList, getAirportList } = useDeparture();
 
   const handleCountry = (value: string) => {
     setCountry(value);
@@ -26,7 +24,7 @@ const SearchBarForm = ({
   };
   const handleCountryList = () => {
     openModal(modalList.CountryDropdown, {
-      countryList: Object.keys(countryAirportList),
+      countryList: getCountryList(),
       onSubmit: handleCountry,
       onClose: closeModal,
     });
@@ -36,11 +34,9 @@ const SearchBarForm = ({
     setAirport(value);
   };
   const handleAirportList = () => {
-    const cityList = Object.keys(countryAirportList[country as string]);
-    const airportList = Object.values(countryAirportList[country as string]).map((v) => v[0]);
     openModal(modalList.AirportDropdown, {
-      cityList,
-      airportList,
+      cityList: getCityList(country as string),
+      airportList: getAirportList(country as string),
       onSubmit: handleAirport,
       onClose: closeModal,
     });
