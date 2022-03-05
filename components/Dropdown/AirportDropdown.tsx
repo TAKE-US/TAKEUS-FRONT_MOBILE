@@ -24,7 +24,7 @@ const AirportDropdown = (props: dropdownPropType): ReactElement => {
     airport,
     cityList[index],
   ]);
-  console.log(combinedList);
+
   return (
     <div className="airport__container">
       <Overlay height={40} onClose={handleClose} />

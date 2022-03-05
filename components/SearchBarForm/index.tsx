@@ -1,4 +1,5 @@
 import { ReactElement, useState } from 'react';
+import { useRouter } from 'next/router';
 
 import { modalList } from '@components/Modals';
 import useModals from '@hooks/useModals';
@@ -13,9 +14,10 @@ const SearchBarForm = ({
 }: {
   countryAirportList: countryAirportType;
 }): ReactElement => {
-  const [country, setCountry] = useState<string | null>(null);
-  const [airport, setAirport] = useState<string | null>(null);
+  const [country, setCountry] = useState<string | null>('미국');
+  const [airport, setAirport] = useState<string | null>('델러스 국제공항');
   const { openModal, closeModal } = useModals();
+  const router = useRouter();
 
   const handleCountry = (value: string) => {
     setCountry(value);
@@ -43,9 +45,18 @@ const SearchBarForm = ({
     });
   };
 
-  const handleSubmit = () => {
-    console.log(country, airport);
+  const handleRouter = () => {
+    router.push({
+      pathname: 'dogs',
+      query: { country, airport },
+    });
   };
+
+  const handleSubmit = () => {
+    // ts-pattern 을 도입해서 상태에 따라 Modal 을 보여주자 (inform Modal 작성시)
+    if (country && airport) handleRouter();
+  };
+
   return (
     <SearchBarFormContainer>
       <div className="dropdown__container">
