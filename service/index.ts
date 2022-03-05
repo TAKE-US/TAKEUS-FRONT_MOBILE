@@ -2,9 +2,9 @@ import axios from 'axios';
 import { match } from 'ts-pattern';
 
 export enum ERROR_TYPE {
-  'NOT_ERROR',
-  'CLIENT_ERROR',
-  'SERVER_ERROR',
+  'NOT_ERROR' = 'NOT_ERROR',
+  'CLIENT_ERROR' = 'CLIENT_ERROR',
+  'SERVER_ERROR' = 'SERVER_ERROR',
 }
 
 export const instance = axios.create({
