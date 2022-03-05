@@ -22,7 +22,7 @@ export const CardContainer = styled.article`
   width: 100%;
   height: 50%;
   display: flex;
-  margin-bottom: 4rem;
+  margin-bottom: 1.5rem;
 
   .card__container {
     margin-top: 1rem;

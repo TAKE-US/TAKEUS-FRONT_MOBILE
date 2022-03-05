@@ -30,6 +30,7 @@ export const BeforeVolunteerContainer = styled.section`
     }
 
     button {
+      margin-top: 2rem;
       padding: 0.1rem;
       border-radius: 1.7rem;
       width: 10rem;
