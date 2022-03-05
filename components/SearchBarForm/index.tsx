@@ -1,26 +1,25 @@
-import { ReactElement, useState } from 'react';
+import { ReactElement, useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 
 import { modalList } from '@components/Modals';
 import useModals from '@hooks/useModals';
 import { SearchBarFormContainer, DropdownContainer } from './style';
 import SeacrhBtn from '@assets/SearchBtn.svg';
-import { DepartureType } from '@Customtypes/utils';
 import DropdownArrow from '@assets/DropdownArrow.svg';
 
 import { getDogByAirport } from '@service/dogs';
 import useDeparture from '@hooks/useDeparture';
 
 const SearchBarForm = (): ReactElement => {
-  const [country, setCountry] = useState<string | null>('미국');
-  const [airport, setAirport] = useState<string | null>('델러스 국제공항');
-  const { openModal, closeModal } = useModals();
   const router = useRouter();
+  const [country, setCountry] = useState<string | undefined>(undefined);
+  const [airport, setAirport] = useState<string | undefined>(undefined);
+  const { openModal, closeModal } = useModals();
   const { getCountryList, getCityList, getAirportList } = useDeparture();
 
   const handleCountry = (value: string) => {
     setCountry(value);
-    setAirport(null);
+    setAirport(undefined);
   };
   const handleCountryList = () => {
     openModal(modalList.CountryDropdown, {
@@ -62,6 +61,11 @@ const SearchBarForm = (): ReactElement => {
         return;
     }
   };
+
+  useEffect(() => {
+    setCountry(router.query.country as string);
+    setAirport(router.query.airport as string);
+  }, [router.query.country, router.query.airport]);
 
   return (
     <SearchBarFormContainer>
