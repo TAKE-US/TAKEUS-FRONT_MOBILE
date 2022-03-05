@@ -19,6 +19,7 @@ const SearchBarForm = ({
 
   const handleCountry = (value: string) => {
     setCountry(value);
+    setAirport(null);
   };
   const handleCountryList = () => {
     openModal(modalList.CountryDropdown, {
@@ -42,6 +43,9 @@ const SearchBarForm = ({
     });
   };
 
+  const handleSubmit = () => {
+    console.log(country, airport);
+  };
   return (
     <SearchBarFormContainer>
       <div className="dropdown__container">
@@ -55,7 +59,11 @@ const SearchBarForm = ({
           <DropdownArrow />
         </DropdownContainer>
       </div>
-      <SeacrhBtn />
+      <SeacrhBtn
+        onClick={handleSubmit}
+        fill={country && airport ? '#FDCB02' : '#FFFFFF'}
+        stroke={country && airport ? '#FFFFFF' : '#FDCB02'}
+      />
     </SearchBarFormContainer>
   );
 };
