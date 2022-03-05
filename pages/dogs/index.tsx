@@ -3,14 +3,16 @@ import { useRouter } from 'next/router';
 import to from 'await-to-js';
 import Header from '@components/Header';
 import SearchBarForm from '@components/SearchBarForm';
-import { getDogByAirport } from '@service/dogs';
+import DogCard from '@components/DogCard';
 
 import { reducer, State, Action } from '@utils/Component.reducer';
 import useDeparture from '@hooks/useDeparture';
-import { ERROR_TYPE } from '@service/index';
+import { getDogByAirport } from '@service/dogs';
 import { getDepartureList } from '@service/utils';
+import { ERROR_TYPE } from '@service/index';
 import { DogCardListType, DepartureListPropType } from '@Customtypes/dog';
 import { DogPageContainer } from '@styles/DogPageStyle';
+import NoResult from '@assets/NoResult.svg';
 
 const DogsPage = ({ departureList }: DepartureListPropType) => {
   const router = useRouter();
@@ -65,7 +67,7 @@ const DogsPage = ({ departureList }: DepartureListPropType) => {
         <p className="content">도움을 기다리는 입양견들을 만나보세요.</p>
         <SearchBarForm handleSubmit={handleSubmit} />
       </div>
-      <div>
+      <div className="result">
         {(() => {
           switch (state._TAG) {
             case 'IDLE':
@@ -75,7 +77,11 @@ const DogsPage = ({ departureList }: DepartureListPropType) => {
             case 'ERROR':
               return 'ERROR';
             case 'OK':
-              return state.message?.map((v) => <h3 key={v._id}> {v.name}</h3>);
+              return state.message && state.message.length > 0 ? (
+                state.message?.map((dog) => <DogCard dogCardInfo={dog} key={dog._id} />)
+              ) : (
+                <NoResult />
+              );
           }
         })()}
       </div>
