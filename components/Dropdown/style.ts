@@ -55,12 +55,13 @@ export const SelectorContainer = styled.div<SelectorPropType>`
 
     .city {
       font: ${({ theme }) => theme.font.body1_medium_btn};
-      color: ${({ theme }) => theme.color.black};
+      color: ${({ theme }) => theme.color.gray2};
       padding-left: 1rem;
     }
 
     .airport {
       font: ${({ theme }) => theme.font.body1_btn};
+      padding-left: 1rem;
     }
   }
 `;

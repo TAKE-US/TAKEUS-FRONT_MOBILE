@@ -30,13 +30,14 @@ type ContainerType = {
 
 export const DropdownContainer = styled.div<ContainerType>`
   ${SpaceBetween}
-  font: ${({ theme }) => theme.font.body1_medium};
   width: 45%;
   & > .country {
+    font: ${({ theme }) => theme.font.body1_medium};
     color: ${(props) =>
       props.isCountrySelected ? props.theme.color.black : props.theme.color.gray3};
   }
   & > .airport {
+    font: ${({ theme }) => theme.font.body2};
     color: ${(props) =>
       props.isCountrySelected ? props.theme.color.black : props.theme.color.gray3};
   }
