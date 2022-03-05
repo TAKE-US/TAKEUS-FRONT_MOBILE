@@ -1,9 +1,8 @@
 import React, { ReactElement } from 'react';
-import Image from 'next/image';
 import { useRouter } from 'next/router';
 import Carousel from '@components/Common/Carousel';
+import DogCard from '@components/DogCard';
 
-import TestImage from '@assets/TestImage.png';
 import { DogCardListType } from '@Customtypes/dog';
 import { Container, CardContainer } from './style';
 
@@ -31,13 +30,9 @@ const DogCardContainer = ({
       </div>
       <CardContainer>
         <div className="card__container" ref={listRef}>
-          {dogListCarousel?.map((dog) => {
-            return (
-              <div className="image__container" key={dog._id} onClick={() => onClick(dog._id)}>
-                <Image src={TestImage} width={150} height={150} alt="TestImage" />
-              </div>
-            );
-          })}
+          {dogListCarousel?.map((dog) => (
+            <DogCard dogCardInfo={dog} key={dog._id} />
+          ))}
         </div>
       </CardContainer>
     </Container>

@@ -1,6 +1,6 @@
-export type DogCardListType = Array<DogCard>;
+export type DogCardListType = Array<DogCardType>;
 
-export interface DogCard {
+export interface DogCardType {
   status: string;
   kakaotalkId: Array<string>;
   phoneNumber: Array<string>;
