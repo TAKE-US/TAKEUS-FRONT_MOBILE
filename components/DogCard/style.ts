@@ -2,11 +2,11 @@ import styled from '@emotion/styled';
 import { SpaceAround, Center } from '@styles/common';
 
 export const DogCardWrapper = styled.article`
-  margin-left: 0.4rem;
   flex: 0 0 auto;
+  margin-left: 1rem;
 
   & > .info__dog {
-    width: 100%;
+    width: 15rem;
     ${SpaceAround}
 
     .name {

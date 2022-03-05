@@ -21,4 +21,17 @@ export const DogPageContainer = styled.div`
       font: ${({ theme }) => theme.font.title2_btn};
     }
   }
+
+  .result {
+    margin-top: 1rem;
+    padding: 0 1.5rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    row-gap: 2rem;
+    column-gap: 1rem;
+
+    img {
+      border-radius: 0.6rem;
+    }
+  }
 `;
