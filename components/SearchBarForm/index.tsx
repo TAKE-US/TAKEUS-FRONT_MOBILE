@@ -3,11 +3,12 @@ import { useRouter } from 'next/router';
 
 import { modalList } from '@components/Modals';
 import useModals from '@hooks/useModals';
-
 import { SearchBarFormContainer, DropdownContainer } from './style';
 import SeacrhBtn from '@assets/SearchBtn.svg';
 import { countryAirportType } from '@Customtypes/utils';
 import DropdownArrow from '@assets/DropdownArrow.svg';
+
+import { getDogByAirport } from '@service/dogs';
 
 const SearchBarForm = ({
   countryAirportList,
@@ -53,8 +54,17 @@ const SearchBarForm = ({
   };
 
   const handleSubmit = () => {
-    // ts-pattern 을 도입해서 상태에 따라 Modal 을 보여주자 (inform Modal 작성시)
-    if (country && airport) handleRouter();
+    if (!(country && airport)) return;
+    switch (router.pathname) {
+      case '/':
+        handleRouter();
+        break;
+      case '/dogs':
+        getDogByAirport(airport);
+        break;
+      default:
+        return;
+    }
   };
 
   return (
