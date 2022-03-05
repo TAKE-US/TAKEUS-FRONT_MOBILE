@@ -29,7 +29,7 @@ export const getDogByAirport = async (airport: string): Promise<DogListResponse>
 
   return {
     error,
-    dogList: data,
-    length: data.length,
+    dogList: data.data,
+    length: data.totalNums,
   };
 };
