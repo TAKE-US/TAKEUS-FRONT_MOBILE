@@ -21,14 +21,14 @@ export const postToken = async (token: string, social: string) => {
   };
 };
 
-export const getCountryAndAirport = async () => {
+export const getDepartureList = async () => {
   const {
     data: { data },
   } = await instance.get('/api/airports/country');
 
-  const { _id, ...countryAirportList } = data;
+  const { _id, ...departureList } = data;
 
   return {
-    countryAirportList: countryAirportList,
+    departureList,
   };
 };

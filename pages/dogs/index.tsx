@@ -2,11 +2,11 @@ import React, { useEffect, useReducer, useState } from 'react';
 import { useRouter } from 'next/router';
 import Header from '@components/Header';
 import SearchBarForm from '@components/SearchBarForm';
-import { getCountryAndAirport } from '@service/utils';
+import { getDepartureList } from '@service/utils';
 import { getDogByAirport } from '@service/dogs';
 import to from 'await-to-js';
 
-import { countryAirportType } from '@Customtypes/utils';
+import { DepartureType } from '@Customtypes/utils';
 
 import styled from '@emotion/styled';
 import { VerticalAlign } from '@styles/common';
@@ -39,7 +39,7 @@ const DogPageContainer = styled.div`
 
 const DogsPage = () => {
   const router = useRouter();
-  const [airportList, setAirportList] = useState<countryAirportType>({});
+  const [airportList, setAirportList] = useState<DepartureType>({});
   const [dogListState, dispatch] = useReducer<
     React.Reducer<State<DogCardListType>, Action<DogCardListType>>
   >(reducer, {
@@ -72,7 +72,7 @@ const DogsPage = () => {
 
   useEffect(() => {
     const handleList = async () => {
-      const { countryAirportList } = await getCountryAndAirport();
+      const { countryAirportList } = await getDepartureList();
       setAirportList(countryAirportList);
     };
 

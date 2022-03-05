@@ -1,4 +1,4 @@
-export type countryAirportType =
+export type DepartureType =
   | {
       [index: string]: string;
       string?: {

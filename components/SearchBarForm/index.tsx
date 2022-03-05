@@ -5,7 +5,7 @@ import { modalList } from '@components/Modals';
 import useModals from '@hooks/useModals';
 import { SearchBarFormContainer, DropdownContainer } from './style';
 import SeacrhBtn from '@assets/SearchBtn.svg';
-import { countryAirportType } from '@Customtypes/utils';
+import { DepartureType } from '@Customtypes/utils';
 import DropdownArrow from '@assets/DropdownArrow.svg';
 
 import { getDogByAirport } from '@service/dogs';
@@ -13,7 +13,7 @@ import { getDogByAirport } from '@service/dogs';
 const SearchBarForm = ({
   countryAirportList,
 }: {
-  countryAirportList: countryAirportType;
+  countryAirportList: DepartureType;
 }): ReactElement => {
   const [country, setCountry] = useState<string | null>('미국');
   const [airport, setAirport] = useState<string | null>('델러스 국제공항');
@@ -46,7 +46,7 @@ const SearchBarForm = ({
     });
   };
 
-  const handleRouter = () => {
+  const handleRouter = (country: string, airport: string) => {
     router.push({
       pathname: 'dogs',
       query: { country, airport },
@@ -57,7 +57,7 @@ const SearchBarForm = ({
     if (!(country && airport)) return;
     switch (router.pathname) {
       case '/':
-        handleRouter();
+        handleRouter(country, airport);
         break;
       case '/dogs':
         getDogByAirport(airport);
