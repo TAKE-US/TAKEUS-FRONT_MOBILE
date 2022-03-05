@@ -5,4 +5,4 @@ export type countryAirportType =
         string: Array<string>;
       };
     }
-  | never;
+  | unknown;
