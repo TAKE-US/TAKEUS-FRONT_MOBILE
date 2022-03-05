@@ -52,8 +52,21 @@ export function reducer<R, E>(prevState: State<R, E>, action: Action<R, E>): Sta
         };
       }
       break;
+    case 'OK':
+      if (action._TAG === 'FETCH') {
+        return {
+          _TAG: 'LOADING',
+        };
+      }
+      if (action._TAG === 'SUCCESS') {
+        return {
+          _TAG: 'IDLE',
+        };
+      }
+      break;
     default:
       throw new Error(`Unknown action type: ${action._TAG}`);
+      break;
   }
   return prevState;
 }
