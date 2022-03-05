@@ -9,6 +9,7 @@ import { getDepartureList } from '@service/utils';
 import { NextPageContainer } from '@styles/pageStyle';
 import { DogCardListType } from '@Customtypes/dog';
 import { DepartureType } from '@Customtypes/utils';
+import DeparueProvider from '@context/DepartureProvider';
 
 interface HomePageProps {
   dogListCarousel: DogCardListType;
@@ -18,12 +19,14 @@ interface HomePageProps {
 const Home = ({ dogListCarousel, departureList }: HomePageProps) => {
   return (
     <NextPageContainer>
-      <div className="mobile">
-        <Header />
-        <SearchBar departureList={departureList} />
-        <DogCardContainer dogListCarousel={dogListCarousel} />
-        <MainPageInform />
-      </div>
+      <DeparueProvider>
+        <div className="mobile">
+          <Header />
+          <SearchBar departureList={departureList} />
+          <DogCardContainer dogListCarousel={dogListCarousel} />
+          <MainPageInform />
+        </div>
+      </DeparueProvider>
       <MobileInform />
     </NextPageContainer>
   );
