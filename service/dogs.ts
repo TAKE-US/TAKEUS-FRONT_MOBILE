@@ -1,8 +1,9 @@
 import { instance, isErrorByStatusCode, ERROR_TYPE } from 'service/index';
+import { DogCardListType } from '@Customtypes/dog';
 
 interface DogListResponse {
   error: ERROR_TYPE | null;
-  dogList: Array<string>;
+  dogList: DogCardListType;
   length: number;
 }
 

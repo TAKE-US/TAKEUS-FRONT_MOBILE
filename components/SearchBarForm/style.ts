@@ -23,9 +23,10 @@ export const SearchBarFormContainer = styled.div`
   }
 `;
 
+type AllowedKeys = 'isCountrySelected' | 'isAirportSelected';
+
 type ContainerType = {
-  isCountrySelected: boolean;
-  isAirportSelected: boolean;
+  [key in AllowedKeys]?: string | null;
 };
 
 export const DropdownContainer = styled.div<ContainerType>`
