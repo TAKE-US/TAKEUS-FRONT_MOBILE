@@ -27,12 +27,13 @@ export const DogPageContainer = styled.div`
   }
 
   .result {
+    width: 100%;
     margin-top: 1rem;
-    padding: 0 1.5rem;
     display: grid;
     grid-template-columns: 1fr 1fr;
     row-gap: 2rem;
-    column-gap: 1rem;
+    justify-content: flex-start;
+    align-items: center;
 
     img {
       border-radius: 0.6rem;

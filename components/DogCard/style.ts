@@ -3,7 +3,10 @@ import { SpaceAround, Center } from '@styles/common';
 
 export const DogCardWrapper = styled.article`
   flex: 0 0 auto;
-  margin-left: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 
   & > .info__dog {
     width: 15rem;
