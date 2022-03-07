@@ -2,7 +2,7 @@ import React, { ReactElement } from 'react';
 import styled from '@emotion/styled';
 
 type OverlayPropType = {
-  height: number;
+  height?: number;
 };
 
 export const OverlayContainer = styled.div<OverlayPropType>`
@@ -21,7 +21,7 @@ export const OverlayContainer = styled.div<OverlayPropType>`
 
 interface OverlayProps {
   onClose: (e: React.MouseEvent) => void;
-  height: number;
+  height?: number;
 }
 
 const Overlay = ({ onClose, height }: OverlayProps): ReactElement => {
