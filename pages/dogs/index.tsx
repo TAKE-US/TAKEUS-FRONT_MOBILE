@@ -5,6 +5,7 @@ import HeaderWithSearch from '@components/HeaderWithSearch';
 import DogCard from '@components/DogCard';
 import NoResult from '@components/Common/NoResult';
 import Loading from '@components/Common/Loading';
+import Error from '@components/Common/Error';
 
 import { reducer, State, Action } from '@utils/Component.reducer';
 import useDeparture from '@hooks/useDeparture';
@@ -71,7 +72,7 @@ const DogsPage = ({ departureList }: DepartureListPropType) => {
             case 'LOADING':
               return <Loading />;
             case 'ERROR':
-              return 'ERROR';
+              return <Error />;
             case 'OK':
               return state.message && state.message.length > 0 ? (
                 state.message?.map((dog) => <DogCard dogCardInfo={dog} key={dog._id} />)

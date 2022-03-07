@@ -30,6 +30,10 @@ const BeforeVolunteer = (): ReactElement => {
 };
 
 const About = (): ReactElement => {
+  const router = useRouter();
+  const handleClick = () => {
+    router.push('/about');
+  };
   return (
     <AboutContainer>
       <h5>ABOUT TAKE US </h5>
@@ -52,7 +56,7 @@ const About = (): ReactElement => {
         단체/개인구조자는 TAKEUS를 통해 이동봉사자를 모집하는 과정에서 들이는 시간과 수고를 줄일 수
         있습니다.
       </p>
-      <button> 테이커스에 문의하기 </button>
+      <button onClick={handleClick}> 테이커스에 문의하기 </button>
     </AboutContainer>
   );
 };

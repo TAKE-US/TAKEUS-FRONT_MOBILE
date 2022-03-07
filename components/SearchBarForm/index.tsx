@@ -65,7 +65,10 @@ const SearchBarForm = ({ handleSubmit }: HandleSubmitType): ReactElement => {
           <DropdownArrow />
         </DropdownContainer>
         <div className="contour"></div>
-        <DropdownContainer isAirportSelected={airport} onClick={handleAirportList}>
+        <DropdownContainer
+          isAirportSelected={airport}
+          onClick={country ? handleAirportList : handleCountryList}
+        >
           <p className="airport">{airport ? airport.slice(0, 8) : '도착 공항'}</p>
           <DropdownArrow />
         </DropdownContainer>
