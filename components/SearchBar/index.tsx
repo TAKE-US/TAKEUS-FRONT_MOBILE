@@ -1,37 +1,38 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Image from 'next/image';
+import { useRouter } from 'next/router';
+import SearchBarForm from '@components/SearchBarForm';
 
-import Dropdown from '@components/Common/Dropdown';
-
-import { Container, SearchBarContainer, SearchBarFormContainer } from './style';
+import useDeparture from '@hooks/useDeparture';
+import { DepartureType } from '@Customtypes/utils';
 import MainBackGroundImage from '@assets/MainBackground.png';
-import SeacrhBtn from '@assets/SearchBtn.svg';
+import { SearchBarContainer, SearchBarContentContainer } from './style';
 
-const SearchBarForm = () => {
-  return (
-    <SearchBarFormContainer>
-      <div className="dropdown__container">
-        <Dropdown name={'국가'} />
-        <div className="contour"></div>
-        <Dropdown name={'도착 공항'} />
-      </div>
-      <SeacrhBtn />
-    </SearchBarFormContainer>
-  );
-};
+const SearchBar = ({ departureList }: { departureList: DepartureType }) => {
+  const { setDepartureList } = useDeparture();
+  const router = useRouter();
+  const handleSubmit = (airport: string, country?: string) => {
+    router.push({
+      pathname: 'dogs',
+      query: { country, airport },
+    });
+  };
 
-const SearchBar = () => {
+  useEffect(() => {
+    setDepartureList(departureList);
+  }, [departureList, setDepartureList]);
+
   return (
-    <Container>
-      <Image src={MainBackGroundImage} alt="Main BackGround Image" />
-      <SearchBarContainer>
-        <SearchBarForm />
+    <SearchBarContainer>
+      <Image src={MainBackGroundImage} height={400} width={500} alt="Main BackGround Image" />
+      <SearchBarContentContainer>
+        <SearchBarForm handleSubmit={handleSubmit} />
         <p>
           새로운 삶을 찾아 먼 바다를 건너야하는 생명에게 새로운 삶을 <br /> 선물해주는 이들을 우리는
           Takers라고 부릅니다.
         </p>
-      </SearchBarContainer>
-    </Container>
+      </SearchBarContentContainer>
+    </SearchBarContainer>
   );
 };
 

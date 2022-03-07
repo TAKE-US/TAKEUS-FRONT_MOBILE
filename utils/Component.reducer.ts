@@ -1,6 +1,6 @@
 import React from 'react';
 
-type State =
+export type State<T, E = unknown> =
   | {
       _TAG: 'IDLE';
     }
@@ -9,25 +9,27 @@ type State =
     }
   | {
       _TAG: 'ERROR';
+      error: E;
     }
   | {
       _TAG: 'OK';
-      message: string;
+      message: null | T;
     };
 
-type Action =
+export type Action<T, E = unknown> =
   | {
       _TAG: 'FETCH';
     }
   | {
       _TAG: 'FAILED';
+      error: E;
     }
   | {
       _TAG: 'SUCCESS';
-      message: string;
+      message: T;
     };
 
-export const reducer: React.Reducer<State, Action> = (prevState: State, action) => {
+export function reducer<R, E>(prevState: State<R, E>, action: Action<R, E>): State<R, E> {
   switch (prevState._TAG) {
     case 'IDLE':
       if (action._TAG === 'FETCH') {
@@ -40,6 +42,7 @@ export const reducer: React.Reducer<State, Action> = (prevState: State, action) 
       if (action._TAG === 'FAILED') {
         return {
           _TAG: 'ERROR',
+          error: action.error,
         };
       }
       if (action._TAG === 'SUCCESS') {
@@ -50,10 +53,20 @@ export const reducer: React.Reducer<State, Action> = (prevState: State, action) 
       }
       break;
     case 'OK':
+      if (action._TAG === 'FETCH') {
+        return {
+          _TAG: 'LOADING',
+        };
+      }
+      if (action._TAG === 'SUCCESS') {
+        return {
+          _TAG: 'IDLE',
+        };
+      }
       break;
     default:
+      throw new Error(`Unknown action type: ${action._TAG}`);
       break;
   }
-
   return prevState;
-};
+}

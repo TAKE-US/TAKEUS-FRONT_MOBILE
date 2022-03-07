@@ -1,6 +1,8 @@
-export type DogCardListType = Array<DogCard>;
+import { DepartureType } from '@Customtypes/utils';
 
-export interface DogCard {
+export type DogCardListType = Array<DogCardType>;
+
+export interface DogCardType {
   status: string;
   kakaotalkId: Array<string>;
   phoneNumber: Array<string>;
@@ -23,4 +25,12 @@ export interface DogCard {
   registerDate: string;
   __v: number;
   detail: string;
+}
+
+export interface HandleSubmitType {
+  handleSubmit: (airport: string, country?: string) => void;
+}
+
+export interface DepartureListPropType {
+  departureList: DepartureType;
 }

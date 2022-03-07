@@ -1,6 +1,6 @@
 import React, { ReactElement, useState } from 'react';
 import { ModalsStateContext, ModalsDispatchContext } from 'context/ModalsContext';
-import { ModalListState, ModalPropType, ModalsDispatch } from '../types/modal';
+import { ModalListState, ModalPropType, ModalsDispatch } from '@Customtypes/modal';
 
 export function ModalsProvider({ children }: { children: React.ReactNode }) {
   const [openedModals, setOpenedModals] = useState<ModalListState>([]);

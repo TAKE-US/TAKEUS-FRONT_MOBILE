@@ -25,9 +25,7 @@
     }
   },
   "dependencies": {
-    "@emotion/css": "^11.7.1",
     "@emotion/react": "^11.7.1",
-    "@emotion/server": "^11.4.0",
     "@emotion/styled": "^11.6.0",
     "@next/bundle-analyzer": "^12.1.0",
     "await-to-js": "^3.0.0",
