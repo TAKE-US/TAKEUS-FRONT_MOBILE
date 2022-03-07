@@ -5,11 +5,11 @@ import useModals from '@hooks/useModals';
 import useDeparture from '@hooks/useDeparture';
 
 import { SearchBarFormContainer, DropdownContainer } from './style';
-import { SearchBarFormType } from '@Customtypes/dog';
+import { HandleSubmitType } from '@Customtypes/dog';
 import SeacrhBtn from '@assets/SearchBtn.svg';
 import DropdownArrow from '@assets/DropdownArrow.svg';
 
-const SearchBarForm = ({ handleSubmit }: SearchBarFormType): ReactElement => {
+const SearchBarForm = ({ handleSubmit }: HandleSubmitType): ReactElement => {
   const router = useRouter();
   const [country, setCountry] = useState<string | undefined>(undefined);
   const [airport, setAirport] = useState<string | undefined>(undefined);

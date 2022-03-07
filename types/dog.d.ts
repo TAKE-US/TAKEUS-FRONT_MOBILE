@@ -27,7 +27,7 @@ export interface DogCardType {
   detail: string;
 }
 
-export interface SearchBarFormType {
+export interface HandleSubmitType {
   handleSubmit: (airport: string, country?: string) => void;
 }
 
