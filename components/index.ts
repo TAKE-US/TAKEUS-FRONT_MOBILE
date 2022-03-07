@@ -16,3 +16,6 @@ export { default as Footer } from './Common/Footer';
 export { default as Carousel } from './Common/Carousel';
 export { default as MobileInform } from './Common/MobileInform';
 export { default as Overlay } from './Common/Overlay';
+
+// Dogs
+export { default as DogDetail } from './DogDetail';

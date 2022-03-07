@@ -1,16 +1,22 @@
 import { ReactElement } from 'react';
 import Image from 'next/image';
+import { useRouter } from 'next/router';
+
 import { DogCardType } from '@Customtypes/dog';
 import TestImage from '@assets/TestImage.png';
 import Location from '@assets/Location.svg';
 import { DogCardWrapper } from './style';
 
 const DogCard = ({ dogCardInfo }: { dogCardInfo: DogCardType }): ReactElement => {
-  const { name, endingAirport, isInstitution, photos } = dogCardInfo;
+  const router = useRouter();
+  const { name, endingAirport, isInstitution, photos, _id } = dogCardInfo;
   const RepImage = photos.find((v) => v.length > 0);
+  const handleClick = (id: string) => {
+    router.push(`/dogs/${id}`);
+  };
 
   return (
-    <DogCardWrapper>
+    <DogCardWrapper onClick={() => handleClick(_id)}>
       <Image src={RepImage ? RepImage : TestImage} width={150} height={150} alt="TestImage" />
       <div className="info__dog">
         <p className="name"> {name.slice(0, 4) + '..'} </p>
