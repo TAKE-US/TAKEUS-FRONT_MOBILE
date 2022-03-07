@@ -4,6 +4,10 @@ import { VerticalAlign } from '@styles/common';
 export const DogPageContainer = styled.div`
   height: 100vh;
   width: 100vw;
+  overflow: scroll;
+  &::-webkit-scrollbar {
+    display: none;
+  }
 
   & > .header__wrapper {
     height: 23%;
