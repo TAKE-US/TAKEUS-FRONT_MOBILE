@@ -4,24 +4,30 @@
 
 > 유기견 해외이동봉사 대상견 매칭 서비스, TAKE US
 
-<a href="">DEPLOY URL</a>
+<a href="https://takeus-front-mobile.vercel.app/">DEPLOY URL</a>
 
 ### Tech Stack
 
-<img alt="Python" src ="https://img.shields.io/badge/Typescript-235A97.svg?&style=for-the-badge&logo=TypeScript&logoColor=white"/>
-<img alt="Nextjs" src ="https://img.shields.io/badge/nextjs-000000.svg?&style=for-the-badge&logo=Nextjs&logoColor=white"/>
-<img alt="React" src ="https://img.shields.io/badge/React-61DAFB.svg?&style=for-the-badge&logo=React&logoColor=white"/>
-<img alt="styled" src ="https://img.shields.io/badge/styled-DB7093.svg?&style=for-the-badge&logo=styled&logoColor=white"/>
-<img alt="styled" src ="https://img.shields.io/badge/yarn-2C8EBB.svg?&style=for-the-badge&logo=yarn&logoColor=white"/>
+[![TypeScript Badge](https://img.shields.io/badge/Typescript-235A97?style=flat-square&logo=Typescript&logoColor=white)](https://www.typescriptlang.org/)
+[![React Badge](https://img.shields.io/badge/React-61DAFB?style=flat-square&logo=React&logoColor=white)](https://reactjs.org/)
+[![Next.js Badge](https://img.shields.io/badge/Next.js-000000?style=flat-square&logo=next.js&logoColor=white)](https://nextjs.org/)
+[![styled Badge](https://img.shields.io/badge/Styled-DB7093?style=flat-square&logo=styled-components&logoColor=white)](https://www.apollographql.com/)
+[![Sass Badge](https://img.shields.io/badge/Sass-CC6699?style=flat-square&logo=Sass&logoColor=white)](https://sass-lang.com/)
 
 <br/>
 
-### Portfolio
+## Portfolio
 
-1. Reducer를 활용한 컴포넌트 내부 상태 TOP-DOWN 설계
-2. Context를 활용한 파편화된 모달 및 드롭다운 통합 관리
+1. Reducer를 활용한 컴포넌트 내부 상태 TOP-DOWN 설계 관련 코드
+   - `utils/Component.reducer.ts`
+   - `pages/dogs/index.tsx`
+2. Context를 활용한 파편화된 모달 및 드롭다운 통합 관리 관련 코드
+   - `context/ModalsContext.tsx`
+   - `context/ModalsProvider.tsx`
+   - `hooks/useModals.ts`
+   - `components/SearchBarForm/index.tsx`
 
-### Structure
+## Structure
 
 ```
 
