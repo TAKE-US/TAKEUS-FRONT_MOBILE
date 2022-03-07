@@ -24,7 +24,7 @@ const SearchBar = ({ departureList }: { departureList: DepartureType }) => {
 
   return (
     <SearchBarContainer>
-      <Image src={MainBackGroundImage} height={300} width={375} alt="Main BackGround Image" />
+      <Image src={MainBackGroundImage} alt="Main BackGround Image" />
       <SearchBarContentContainer>
         <SearchBarForm handleSubmit={handleSubmit} />
         <p>

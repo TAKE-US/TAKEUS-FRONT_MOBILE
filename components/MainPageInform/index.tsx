@@ -8,8 +8,25 @@ import MainPageBeforeVolunteer from '@assets/MainPageBeforeVolunteer.png';
 import ClockIcon from '@assets/ClockIcon.svg';
 import FinderIcon from '@assets/FinderIcon.svg';
 import HeartIcon from '@assets/HeartIcon.svg';
+import React from 'react';
 
-const About = () => {
+const BeforeVolunteer = (): ReactElement => {
+  return (
+    <BeforeVolunteerContainer>
+      <Image src={MainPageBeforeVolunteer} alt="Main BackGround Image" width={420} height={200} />
+      <section>
+        <h5>Q.이동봉사전, 알아두어야 할 것은 무엇인가요 ? </h5>
+        <span>
+          해외 이동 봉사, 처음이라 걱정 되신다구요? 걱정하지마세요! 해외이동봉사 정보와 주의사항,
+          테이커스가 차근차근 알려드릴게요.
+        </span>
+        <button>자세히 보기</button>
+      </section>
+    </BeforeVolunteerContainer>
+  );
+};
+
+const About = (): ReactElement => {
   return (
     <AboutContainer>
       <h5>ABOUT TAKE US </h5>
@@ -40,17 +57,7 @@ const About = () => {
 const MainPageInfrom = (): ReactElement => {
   return (
     <InformContainer>
-      <BeforeVolunteerContainer>
-        <Image src={MainPageBeforeVolunteer} alt="Main BackGround Image" />
-        <section>
-          <h5>Q.이동봉사전, 알아두어야 할 것은 무엇인가요 ? </h5>
-          <span>
-            해외 이동 봉사, 처음이라 걱정 되신다구요? 걱정하지마세요! 해외이동봉사 정보와 주의사항,
-            테이커스가 차근차근 알려드릴게요.
-          </span>
-          <button>자세히 보기</button>
-        </section>
-      </BeforeVolunteerContainer>
+      <BeforeVolunteer />
       <About />
       <Footer />
     </InformContainer>
