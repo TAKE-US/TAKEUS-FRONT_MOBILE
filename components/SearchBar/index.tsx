@@ -5,8 +5,8 @@ import SearchBarForm from '@components/SearchBarForm';
 
 import useDeparture from '@hooks/useDeparture';
 import { DepartureType } from '@Customtypes/utils';
-import { SearchBarContainer, SearchBarContentContainer } from './style';
 import MainBackGroundImage from '@assets/MainBackground.png';
+import { SearchBarContainer, SearchBarContentContainer } from './style';
 
 const SearchBar = ({ departureList }: { departureList: DepartureType }) => {
   const { setDepartureList } = useDeparture();

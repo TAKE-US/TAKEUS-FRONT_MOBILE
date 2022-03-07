@@ -1,5 +1,4 @@
 import React, { ReactElement } from 'react';
-import { useRouter } from 'next/router';
 import Carousel from '@components/Common/Carousel';
 import DogCard from '@components/DogCard';
 
@@ -13,11 +12,6 @@ const DogCardContainer = ({
 }): ReactElement => {
   const listRef = React.useRef<HTMLDivElement | null>(null);
   const movingValue = 162;
-
-  const router = useRouter();
-  const onClick = (id: string) => {
-    router.push(`/dogs/${id}`);
-  };
 
   return (
     <Container>

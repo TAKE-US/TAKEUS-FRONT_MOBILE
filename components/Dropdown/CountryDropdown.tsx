@@ -2,9 +2,9 @@ import { ReactElement } from 'react';
 import { modalList } from '@components/Modals';
 import Overlay from '@components/Common/Overlay';
 
-import { SelectorContainer } from './style';
 import DeleteIcon from '@assets/DeleteIcon.svg';
 import { dropdownPropType } from '@Customtypes/dropdown';
+import { SelectorContainer } from './style';
 
 const CountryDropdown = (props: dropdownPropType): ReactElement => {
   const {

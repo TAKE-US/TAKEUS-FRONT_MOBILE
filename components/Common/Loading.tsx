@@ -1,8 +1,9 @@
 import { ReactElement } from 'react';
+import Image from 'next/image';
 import styled from '@emotion/styled';
+
 import LoadingImage from '@assets/LoadingImage.gif';
 import { VerticalAlign } from '@styles/common';
-import Image from 'next/image';
 
 const LoadingContainer = styled.div`
   width: 100vw;

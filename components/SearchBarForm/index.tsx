@@ -4,10 +4,10 @@ import { modalList } from '@components/Modals';
 import useModals from '@hooks/useModals';
 import useDeparture from '@hooks/useDeparture';
 
-import { SearchBarFormContainer, DropdownContainer } from './style';
 import { HandleSubmitType } from '@Customtypes/dog';
 import SeacrhBtn from '@assets/SearchBtn.svg';
 import DropdownArrow from '@assets/DropdownArrow.svg';
+import { SearchBarFormContainer, DropdownContainer } from './style';
 
 const SearchBarForm = ({ handleSubmit }: HandleSubmitType): ReactElement => {
   const router = useRouter();

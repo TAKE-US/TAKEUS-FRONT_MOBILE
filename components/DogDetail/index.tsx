@@ -1,10 +1,9 @@
 import Image from 'next/image';
-
+import { DogCardType } from '@Customtypes/dog';
 import Report from '@assets/Report.svg';
 import Departure from '@assets/Departure.svg';
 import DogDetailImage from '@assets/DogDetailImage.png';
 import { DogDetailContainer } from './style';
-import { DogCardType } from '@Customtypes/dog';
 
 const DogDetail = ({ dog }: { dog: DogCardType }): ReactElement => {
   const {

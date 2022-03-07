@@ -1,9 +1,7 @@
 import React, { useContext } from 'react';
-
 import SideBar from '@components/SideBar';
 import { CountryDropdown, AirportDropdown } from '@components/Dropdown';
 import { ModalsDispatchContext, ModalsStateContext } from '@context/ModalsContext';
-
 import { ModalListState, ModalsDispatch } from '@Customtypes/modal';
 
 export const modalList = {
