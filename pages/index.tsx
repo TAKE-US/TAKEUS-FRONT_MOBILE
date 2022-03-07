@@ -39,7 +39,7 @@ export async function getStaticProps() {
       dogListCarousel,
       departureList,
     },
-    revalidate: 2000,
+    revalidate: 60 * 1000,
   };
 }
 
