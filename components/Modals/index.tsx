@@ -1,12 +1,13 @@
 import React, { useContext } from 'react';
-
 import SideBar from '@components/SideBar';
+import { CountryDropdown, AirportDropdown } from '@components/Dropdown';
 import { ModalsDispatchContext, ModalsStateContext } from '@context/ModalsContext';
-
-import { ModalListState, ModalsDispatch } from '../../types/modal';
+import { ModalListState, ModalsDispatch } from '@Customtypes/modal';
 
 export const modalList = {
   SideBar,
+  CountryDropdown,
+  AirportDropdown,
 };
 
 const Modals = (): JSX.Element => {
@@ -21,12 +22,14 @@ const Modals = (): JSX.Element => {
           close(Component);
         };
 
-        const handleSubmit = async () => {
-          if (typeof onSubmit === 'function') await onSubmit();
+        const handleSubmit = async (value?: string) => {
+          if (typeof onSubmit === 'function') await onSubmit(value);
           onClose();
         };
 
-        return <Component key={index} onSubmit={handleSubmit} restProps={restProps} />;
+        return (
+          <Component key={index} onSubmit={handleSubmit} onClose={onClose} restProps={restProps} />
+        );
       })}
     </>
   );

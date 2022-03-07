@@ -4,15 +4,18 @@ import theme from '@styles/theme';
 
 import '@styles/global.css';
 import { ModalsProvider } from '@context/ModalsProvider';
+import DepartureProvider from '@context/DepartureProvider';
 import Modals from '@components/Modals';
 
 export default function MyApp({ Component, pageProps }: AppProps) {
   return (
     <ThemeProvider theme={theme}>
-      <ModalsProvider>
-        <Modals />
-        <Component {...pageProps} />
-      </ModalsProvider>
+      <DepartureProvider>
+        <ModalsProvider>
+          <Modals />
+          <Component {...pageProps} />
+        </ModalsProvider>
+      </DepartureProvider>
     </ThemeProvider>
   );
 }
