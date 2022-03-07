@@ -63,6 +63,7 @@ type GoogleResponseType = GoogleLoginResponse | GoogleLoginResponseOffline;
 
 const Login = () => {
   const router = useRouter();
+  const API_KEY = process.env.GOOGLE_API_KEY as string;
 
   const handleSuccess = async (response: GoogleResponseType, social: string) => {
     if ('accessToken' in response) {
@@ -92,7 +93,7 @@ const Login = () => {
         </div>
       </div>
       <GoogleLogin
-        clientId={process.env.GOOGLE_API_KEY as string}
+        clientId={API_KEY}
         render={(renderProps) => (
           <button onClick={renderProps.onClick}>
             <GoogleIcon />
