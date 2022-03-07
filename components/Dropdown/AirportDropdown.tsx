@@ -1,6 +1,6 @@
 import { ReactElement } from 'react';
 import { modalList } from '@components/Modals';
-import Overlay from '@components/Overlay';
+import Overlay from '@components/Common/Overlay';
 
 import { SelectorContainer } from './style';
 import DeleteIcon from '@assets/DeleteIcon.svg';

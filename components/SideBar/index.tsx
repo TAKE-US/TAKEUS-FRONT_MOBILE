@@ -2,7 +2,7 @@ import React, { ReactElement } from 'react';
 import styled from '@emotion/styled';
 import { useRouter } from 'next/router';
 
-import Overlay from '@components/Overlay';
+import Overlay from '@components/Common/Overlay';
 import { modalList } from '@components/Modals';
 import useModals from '@hooks/useModals';
 
