@@ -8,7 +8,7 @@ import { getDepartureList } from '@service/utils';
 
 import { DepartureType } from '@Customtypes/utils';
 import { DogCardListType } from '@Customtypes/dog';
-import { NextPageContainer } from '@styles/MainPageStyle';
+import { NextPageContainer } from '@styles/page/main';
 
 interface HomePageProps {
   dogListCarousel: DogCardListType;

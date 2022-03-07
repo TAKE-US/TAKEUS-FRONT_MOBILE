@@ -12,7 +12,7 @@ import { getDogByAirport } from '@service/dogs';
 import { getDepartureList } from '@service/utils';
 import { ERROR_TYPE } from '@service/index';
 import { DogCardListType, DepartureListPropType } from '@Customtypes/dog';
-import { DogPageContainer } from '@styles/DogPageStyle';
+import { DogPageContainer } from '@styles/page/dogs';
 
 const DogsPage = ({ departureList }: DepartureListPropType) => {
   const router = useRouter();
