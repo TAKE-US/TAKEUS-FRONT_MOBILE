@@ -1,8 +1,7 @@
 import React, { useEffect, useReducer } from 'react';
 import { useRouter } from 'next/router';
 import to from 'await-to-js';
-import Header from '@components/Header';
-import SearchBarForm from '@components/SearchBarForm';
+import HeaderWithSearch from '@components/HeaderWithSearch';
 import DogCard from '@components/DogCard';
 import NoResult from '@components/Common/NoResult';
 
@@ -62,11 +61,7 @@ const DogsPage = ({ departureList }: DepartureListPropType) => {
 
   return (
     <DogPageContainer>
-      <div className="header__wrapper">
-        <Header />
-        <p className="content">도움을 기다리는 입양견들을 만나보세요.</p>
-        <SearchBarForm handleSubmit={handleSubmit} />
-      </div>
+      <HeaderWithSearch handleSubmit={handleSubmit} />
       <div className="result">
         {(() => {
           switch (state._TAG) {
