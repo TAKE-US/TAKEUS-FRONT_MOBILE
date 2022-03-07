@@ -4,6 +4,7 @@ import to from 'await-to-js';
 import Header from '@components/Header';
 import SearchBarForm from '@components/SearchBarForm';
 import DogCard from '@components/DogCard';
+import NoResult from '@components/Common/NoResult';
 
 import { reducer, State, Action } from '@utils/Component.reducer';
 import useDeparture from '@hooks/useDeparture';
@@ -12,7 +13,6 @@ import { getDepartureList } from '@service/utils';
 import { ERROR_TYPE } from '@service/index';
 import { DogCardListType, DepartureListPropType } from '@Customtypes/dog';
 import { DogPageContainer } from '@styles/DogPageStyle';
-import NoResult from '@assets/NoResult.svg';
 
 const DogsPage = ({ departureList }: DepartureListPropType) => {
   const router = useRouter();
