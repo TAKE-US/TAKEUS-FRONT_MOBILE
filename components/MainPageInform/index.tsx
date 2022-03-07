@@ -1,16 +1,19 @@
 import { ReactElement } from 'react';
 import Image from 'next/image';
-
 import Footer from '@components/Common/Footer';
+import { useRouter } from 'next/router';
 
-import { AboutContainer, InformContainer, BeforeVolunteerContainer } from './style';
 import MainPageBeforeVolunteer from '@assets/MainPageBeforeVolunteer.png';
 import ClockIcon from '@assets/ClockIcon.svg';
 import FinderIcon from '@assets/FinderIcon.svg';
 import HeartIcon from '@assets/HeartIcon.svg';
-import React from 'react';
+import { AboutContainer, InformContainer, BeforeVolunteerContainer } from './style';
 
 const BeforeVolunteer = (): ReactElement => {
+  const router = useRouter();
+  const handleClick = () => {
+    router.push('/information');
+  };
   return (
     <BeforeVolunteerContainer>
       <Image src={MainPageBeforeVolunteer} alt="Main BackGround Image" width={420} height={200} />
@@ -20,7 +23,7 @@ const BeforeVolunteer = (): ReactElement => {
           해외 이동 봉사, 처음이라 걱정 되신다구요? 걱정하지마세요! 해외이동봉사 정보와 주의사항,
           테이커스가 차근차근 알려드릴게요.
         </span>
-        <button>자세히 보기</button>
+        <button onClick={handleClick}>자세히 보기</button>
       </section>
     </BeforeVolunteerContainer>
   );
