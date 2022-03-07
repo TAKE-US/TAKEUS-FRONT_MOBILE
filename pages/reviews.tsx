@@ -7,13 +7,13 @@ import LoadingImage from '@assets/LoadingImage.gif';
 import { VerticalAlign } from '@styles/common';
 
 const Container = styled.div`
-  ${VerticalAlign};
+  ${VerticalAlign}
   align-items: center;
-  margin-top: 15rem;
+  margin-top: 5rem;
   font: ${({ theme }) => theme.font.title2_btn};
 
   & > p {
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
   }
 
   & > button {
@@ -22,13 +22,17 @@ const Container = styled.div`
     border: none;
     border-radius: 1rem;
     padding: 0.5rem;
+    margin-top: 2rem;
   }
 `;
 
-export default function Custom404() {
+const ReviewPage = () => {
   const router = useRouter();
-  const onClick = () => {
+  const handleMainPage = () => {
     router.push('/');
+  };
+  const handleWebPage = () => {
+    router.push('https://www.take-us.kr/review');
   };
 
   return (
@@ -36,9 +40,13 @@ export default function Custom404() {
       <Header />
       <Container>
         <Image src={LoadingImage} width={350} height={350} alt="Loading Image" />
-        <p>존재하지 않는 페이지입니다.</p>
-        <button onClick={onClick}>메인 페이지로 돌아가기</button>
+        <p>리뷰 페이지는 현재 준비 중입니다. </p>
+        <p>PC 버전을 이용해주세요. </p>
+        <button onClick={handleWebPage}>PC 버전 리뷰 페이지</button>
+        <button onClick={handleMainPage}>메인 페이지로 돌아가기</button>
       </Container>
     </div>
   );
-}
+};
+
+export default ReviewPage;

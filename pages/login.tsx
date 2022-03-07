@@ -71,8 +71,10 @@ const Login = () => {
     router.push('/');
   };
 
-  //TODO fail 처리할 모달 작성 예정 
-  const handleFailure = () => {console.log('fail')}
+  //TODO fail 처리할 모달 작성 예정
+  const handleFail = () => {
+    console.log('fail');
+  };
 
   return (
     <Container>
@@ -82,18 +84,18 @@ const Login = () => {
           <Image className="takeus" width={147} height={36} src={LoginTitle} alt="TakeUS" />
           <p>SNS 계정으로 손쉽게 가입하고 Takers가 될 수 있어요:)</p>
         </div>
-        < /div>
-        <GoogleLogin
-          clientId={process.env.GOOGLE_API_KEY}
-          render={(renderProps) => (
-            <button onClick={renderProps.onClick}>
-              <GoogleIcon />
-              <p>구글로 시작하기</p>
-            </button>
-          )}
-          onSuccess={(res) => handleSuccess(res.accessToken, 'google')}
-          onFailure={handleFailure}
-        />
+      </div>
+      <GoogleLogin
+        clientId={process.env.GOOGLE_API_KEY as string}
+        render={(renderProps) => (
+          <button onClick={renderProps.onClick}>
+            <GoogleIcon />
+            <p>구글로 시작하기</p>
+          </button>
+        )}
+        onSuccess={(res) => handleSuccess(res.accessToken, 'google')}
+        onFailure={handleFail}
+      />
     </Container>
   );
 };
