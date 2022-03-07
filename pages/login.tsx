@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import { useRouter } from 'next/router';
 import styled from '@emotion/styled';
-import { GoogleLogin } from 'react-google-login';
+import { GoogleLogin, GoogleLoginResponse, GoogleLoginResponseOffline } from 'react-google-login';
 
 import { postToken } from '@service/utils';
 
@@ -13,6 +13,7 @@ import GoogleIcon from '@assets/GoogleIcon.svg';
 const Container = styled.div`
   width: 100vw;
   height: 100vh;
+  position: relative;
   ${VerticalAlign}
   ${Center}
 
@@ -58,17 +59,22 @@ const Container = styled.div`
   }
 `;
 
+type GoogleResponseType = GoogleLoginResponse | GoogleLoginResponseOffline;
+
 const Login = () => {
   const router = useRouter();
 
-  const handleSuccess = async (token: string, social: string) => {
-    const { data, error } = await postToken(token, social);
-    localStorage.setItem('email', data.email);
-    localStorage.setItem('token', data.token);
-    localStorage.setItem('ID', data.id);
-    localStorage.setItem('issuedAt', data.issuedAt);
-
-    router.push('/');
+  const handleSuccess = async (response: GoogleResponseType, social: string) => {
+    if ('accessToken' in response) {
+      const token = response.accessToken;
+      const { data } = await postToken(token, social);
+      localStorage.setItem('email', data.email);
+      localStorage.setItem('token', data.token);
+      localStorage.setItem('ID', data.id);
+      localStorage.setItem('issuedAt', data.issuedAt);
+      router.push('/');
+    }
+    return;
   };
 
   //TODO fail 처리할 모달 작성 예정
@@ -93,7 +99,7 @@ const Login = () => {
             <p>구글로 시작하기</p>
           </button>
         )}
-        onSuccess={(res) => handleSuccess(res.accessToken, 'google')}
+        onSuccess={(res) => handleSuccess(res, 'google')}
         onFailure={handleFail}
       />
     </Container>
