@@ -32,7 +32,7 @@ const ReviewPage = () => {
     router.push('/');
   };
   const handleWebPage = () => {
-    router.push('https://www.take-us.kr/review');
+    router.push(`${process.env.TAKEUS_DESKTOP_URL}/review`);
   };
 
   return (
