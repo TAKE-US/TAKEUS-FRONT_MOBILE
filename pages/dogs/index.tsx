@@ -4,6 +4,7 @@ import to from 'await-to-js';
 import HeaderWithSearch from '@components/HeaderWithSearch';
 import DogCard from '@components/DogCard';
 import NoResult from '@components/Common/NoResult';
+import Loading from '@components/Common/Loading';
 
 import { reducer, State, Action } from '@utils/Component.reducer';
 import useDeparture from '@hooks/useDeparture';
@@ -68,7 +69,7 @@ const DogsPage = ({ departureList }: DepartureListPropType) => {
             case 'IDLE':
               return 'IDLE';
             case 'LOADING':
-              return 'LOADING';
+              return <Loading />;
             case 'ERROR':
               return 'ERROR';
             case 'OK':

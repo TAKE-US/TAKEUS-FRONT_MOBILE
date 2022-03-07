@@ -4,7 +4,7 @@ import { useRouter } from 'next/router';
 
 import Header from '@components/Header';
 
-import Loading from '@assets/Loading.gif';
+import LoadingImage from '@assets/LoadingImage.gif';
 import { VerticalAlign } from '@styles/common';
 
 const Container = styled.div`
@@ -36,7 +36,7 @@ export default function Custom404() {
     <>
       <Header />
       <Container>
-        <Image src={Loading} width={350} height={350} alt="Loading Image" />
+        <Image src={LoadingImage} width={350} height={350} alt="Loading Image" />
         <p>존재하지 않는 페이지입니다.</p>
         <button onClick={onClick}>메인 페이지로 돌아가기</button>
       </Container>
